@@ -3,6 +3,7 @@ import "../css/style.css"
 import NavBar from "../components/NavBar.astro"
 import SuccessButton from "../components/SuccessButton.astro"
 import ProfilButton from "../components/ProfilButton.astro"
+const { title } = Astro.props;
 ---
 
 <html lang="de">
@@ -11,7 +12,7 @@ import ProfilButton from "../components/ProfilButton.astro"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{title}</title>
 	</head>
 	<body>
         <NavBar/>
