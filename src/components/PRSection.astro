@@ -3,11 +3,11 @@ import PopupStyle from "../css/PopupStyle.css"
 const { title, icons } = Astro.props;
 ---
 
-<section class="extra-class">
+<section class="popup-section">
     <h3>{title}</h3>
-    <div class="icons-container">
+    <div class="icon-container">
     {icons.map((icon: { src: string | null | undefined; alt: "Belohnungsvorschau"; }) => (
-      <img src={icon.src} alt={icon.alt ?? ''} />
+      <img class="reward-icon" src={icon.src} alt={icon.alt ?? ''} width="48" height="48"/>
     ))}
   </div>
 </section>
