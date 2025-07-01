@@ -1,12 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import '../css/index.css';
 import Baum from "../assets/Baum.svg";
 import Pflanze from "../assets/Pflanze.svg";
 ---
 
 <Layout title="Greentopia - Home">
-    <div class="Background">
-        <Baum />
-        <Pflanze />
+    <div class="flexbox">
+        <div class="background">
+            <div class="grid-garden">
+                <Baum />
+                <Pflanze />
+                <div class="background-flor"></div>
+            </div>
+        </div>
     </div>
 </Layout>
