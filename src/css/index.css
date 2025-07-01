@@ -1,22 +1,25 @@
- .background {
-      position: absolute; 
-      /* margin: 80px; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 78vw;
-      height: 63vh;
-      background-color: #DFF0EA;
-      border-radius: 64px;
-      /* transition: all 1s ease-out; */
-    }
+.flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 5.5% 9.2%; */
+    margin: 5.5% 18%;
+    position: relative
+}
 
-  .flexbox{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  background: #FAFFFD;
-  }
+.background {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    min-width: 78vw;
+    min-height: 63vh;
+    max-height: 100%;
+    min-width: 100%;
+    background-color: #DFF0EA;
+    border-radius: 64px;
+    margin: 0 3.75rem;
+    /* transition: all 1s ease-out; */
+}
