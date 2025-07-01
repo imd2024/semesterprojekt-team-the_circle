@@ -1,0 +1,54 @@
+---
+import PopupStyle from "../css/PopupStyle.css"
+import Popup from "./Popup.astro"
+---
+
+<Popup
+    variant="orange"
+    iconSrc="#"
+    title="Neue Challenge"
+    description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
+    >
+    <form class="challenge-form">
+        <fieldset class="challenge-focus">
+            <label for="focus">im Themenfokus:</label><br>
+            <select id="focus" name="focus" required>
+                <option value="placeholder" disabled selected hidden>Wähle ein Thema</option>
+                <option value="own">eigener</option>
+                <option value="packaging">Verpackungen</option>
+                <option value="meatconsumption">Fleischkonsum</option>
+                <option value="others">nochAndere</option>
+            </select>
+            <input type="image" src="#" alt="info" width="48" height="48">
+        </fieldset>
+        <div class="challenge-layout">
+            <fieldset class="challenge-detail">
+                <label for="challenge">Überlege Dir die genaue Challenge:</label><br>
+                    <!-- random options of challenges on button click -->
+                    <input type="image" src="#" alt="randomiser" width="48" height="48">
+                    <!-- icon dice and scale -->
+                <textarea id="challenge" name="challenge" rows="10" cols="30">
+                    Ich ...
+                </textarea><br>
+            </fieldset>
+            <fieldset class="challenge-interval">
+                <label for="frequency">mit der Häufigkeit:</label><br>
+                <input type="number" id="frequency" name="frequency" min="1" required><br>
+                <label for="per">pro</label><br>
+                <select id="per" name="per" required>
+                    <option value="placeholder" disabled selected hidden>Interval</option>
+                    <option value="day">Tag</option>
+                    <option value="week">Woche</option>
+                    <option value="month">Monat</option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="Challenge-layout">
+            <div>
+                <input type="checkbox" id="visibility" name="visibility" value="yes">
+                <label for="visibility"> sichtbar für Leute in Deinem Kreis</label>
+            </div>
+            <input type="image" src="#" alt="Submit" width="48" height="48">
+        </div>
+    </form>
+</Popup>

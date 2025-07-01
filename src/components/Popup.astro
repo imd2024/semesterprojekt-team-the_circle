@@ -1,0 +1,25 @@
+---
+import PopupStyle from "../css/PopupStyle.css"
+const { variant = 'orange, purple', title, description, iconSrc } = Astro.props;
+---
+
+<div class="Popup">
+    <header class={`popup-header header--${variant}`}>
+    <ul class="un-list">
+        <li>
+          <img src={iconSrc} alt="Popup-Icon" width="48" height="48"> <!--fetched from input before?-->
+        </li>
+        <li>
+            <h1>{title}</h1><br>
+            <p>{description}</p>
+        </li>
+        <li>
+            <button>
+                <img src="#" alt="explanation Popup Icon" width="48" height="48"> <!-- icon into popup explanation-->
+            </button>
+        </li>
+    </ul>
+    </header>
+    <slot />
+</div>
+

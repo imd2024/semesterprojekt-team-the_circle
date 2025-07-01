@@ -1,0 +1,133 @@
+/* erstmal eigene CSS Datei, damit kein merge-Problem auftritt, wenn wir in die gleichen Zeilen schreiben */
+
+/* colors
+Brand medium rgba(194, 215, 208, 1)
+Brand light rgba(223, 240, 234, 1)
+Belohnungen rgba(145, 71, 174, 1)
+Challenge rgba(250, 206, 112, 1)
+Icons rgba(255, 255, 255, 1)
+Icons-clicked rgba(233, 170, 249, 1)
+input-inactive rgba(255, 255, 255, 0.66)
+input-active rgba(255, 255, 255, 1)
+*/
+
+    /* setting title and textbody size and font in main?
+    h1 (size: 24, font: x), h3 (size: 16, font: x), p (size: 16, font: x)
+    */
+
+.Popup {
+    background-color: rgba(223, 240, 234, 1);
+    margin: 0;
+    border-radius: 25%;
+    width: 30rem;
+    /* min-width: ;
+    max-width: ; */
+    height: 60%;
+    /* min-height: ;
+    max-height: ; */
+    padding: 2rem 10rem 20rem 10rem;
+}
+
+.Popup-header {
+    /* background-color: ; change for different popups... */
+    margin: 0;
+    border-radius: 50px;
+    width: 100%;
+    height: 20%;
+}
+
+/* vordefinierte Farbklassen */
+.header--orange {
+  background-color: orange;
+}
+.header--purple {
+  background-color: purple;
+}
+
+.un-list {
+    list-style: none;
+}
+
+.Popup-header ul {
+    display: flex;
+    flex-direction: row;
+
+}
+
+/* START CHALLENGE */
+
+.challenge-form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* min-width max-width */
+    height: auto;
+    /* min-height max-height */
+    display: flex;
+    flex-direction: row;
+}
+
+.challenge-form fieldset {
+    background-color: rgba(194, 215, 208, 1);
+    margin: 0;
+    border-radius: 25px;
+    border-style: none;
+    padding: 2rem 1rem;
+}
+
+.challenge-layout {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.challenge-focus {
+    width: 100%;
+    /* min max */
+    height: auto;
+}
+
+.challenge-detail {
+    width: 70%;
+    /* min max */
+    height: auto;
+}
+
+.challenge-interval {
+    width: 30%;
+    /*min max */
+    height: auto;
+}
+
+/* END CHALLENGE */
+
+/* START REWARD */
+
+.popup-section {
+    background-color: rgba(194, 215, 208, 1);
+    margin: 0;
+    border-radius: 25px;
+    border-style: none;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* min max */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.reward-icon {
+    margin: 1rem;
+    padding: 0;
+}
+
+/* END REWARD */

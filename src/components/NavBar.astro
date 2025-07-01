@@ -1,46 +1,22 @@
-
+---
+import NavItem from './NavItem.astro'
+---
 <nav class="navbar">
     <ul class="nav-list">
-        <li class="nav-item">
-            <a href="/">
-                <img src="tree-solid.svg" alt="tree" class="nav-icon">
-            </a>
-            
-        </li>
-        <li>
-            <a href="/">
-                <img src="image-solid.svg" alt="image" class="nav-icon">
-            </a>
-            
-        </li>
-        <li>
-            <a href="/">
-                <img src="flag-checkered-solid.svg" alt="tree" class="nav-icon">
-            </a>
-            
-        </li>
-        <li>
-            <a href="/">
-                <img src="lightbulb-regular.svg" alt="tree" class="nav-icon">
-            </a>
-            
-        </li>
-        <li>
-            <a href="/">
-                <img src="comment-regular.svg" alt="tree" class="nav-icon">
-            </a>
-            
-        </li>
-        <li>
-            <div class="trees-icon">
-                <a href="/">
-                    <img src="tree-solid.svg" alt="tree" class="nav-icon">
-                    <img src="tree-solid.svg" alt="tree" class="nav-icon">
-                </a>
-                
+      <NavItem href="/" icon="/tree-solid.svg" label="Home" />
+      <NavItem href="/gallery" icon="/image-solid.svg" label="Gallerie" />
+      <NavItem href="/goals" icon="/flag-checkered-solid.svg" label="eigene Challenges" />
+      <NavItem href="/ideas" icon="/lightbulb-regular.svg" label="Informationen" />
+      <NavItem href="/comments" icon="/comment-regular.svg" label="Chat" />
+      <li class="nav-item">
+          <a href="/forest">
+            <div class="nav-double-icon">
+              <img src="/tree-solid.svg" alt="tree" class="nav-icon" />
+              <img src="/tree-solid.svg" alt="tree" class="nav-icon" />
             </div>
-           
+            <span class="nav-label">Freundegallerie</span>
+          </a>
         </li>
-        
     </ul>
-</nav>
+  </nav>
+  
