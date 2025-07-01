@@ -1,0 +1,13 @@
+---
+import PopupStyle from "../css/PopupStyle.css"
+const { title, icons } = Astro.props;
+---
+
+<section class="extra-class">
+    <h3>{title}</h3>
+    <div class="icons-container">
+    {icons.map((icon: { src: string | null | undefined; alt: "Belohnungsvorschau"; }) => (
+      <img src={icon.src} alt={icon.alt ?? ''} />
+    ))}
+  </div>
+</section>
