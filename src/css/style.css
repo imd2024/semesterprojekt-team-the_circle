@@ -28,7 +28,25 @@ html, body{
     position: relative;
   }
   
+  .nav-label {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #397A62;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.8rem 0.8rem 0.8rem 0.8rem;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+  }
   
+  .nav-item:hover .nav-label {
+    opacity: 1;
+  }
 
    
   
