@@ -1,0 +1,63 @@
+.garden-background {
+    display: flex;
+    align-items: end;
+    flex-direction: row;
+    /* width: 78vw; */
+    /* height: 63vh; */
+    width: 100%;
+    background-color: #DFF0EA;
+    border-radius: 64px;
+    margin: 0 3.75rem 2.5rem;
+}
+
+.garden {
+    position: relative;
+    /* overflow: hidden; */
+    flex-grow: 1;
+    width: 100%;
+    height: 33%;
+    background-color: #C2D7D0;
+    border-radius: 100%;
+    margin: 0% 15%;
+    bottom: 12.5%;
+}
+
+.tree {
+    position: absolute;
+    max-height: 160%;
+    left: 3%;
+    bottom: 60%;
+    width: 43%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.plant {
+    position: absolute;
+    max-height: 70%;
+    width: 18.5%;
+    height: auto;
+    bottom: 50%;
+}
+
+.mid-plant {
+    left: 44%;
+}
+
+.right-plant {
+    left: 70%;
+}
+
+.garden-background-small{
+    display: flex;
+    align-items: end;
+    flex-direction: row;
+    /* width: 78vw; */
+    /* height: 63vh; */
+    background-color: #DFF0EA;
+    border-radius: 100%;
+    margin: 0 3.75rem 2.5rem;
+    aspect-ratio: 1;
+    /* max-height: 69vh; */
+    height: auto;
+}

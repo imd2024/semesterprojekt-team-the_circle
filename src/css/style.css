@@ -1,70 +1,91 @@
-html, body{
-    margin: 0;
-    padding: 0;
-    font-family:Convergence, sans-serif;
-    background: rgb(255, 255, 255);
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Convergence, sans-serif;
+  background: rgb(255, 255, 255);
+  height: 100vh;
+  width: 100vw;
 }
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
 .navbar {
-    background-color: #397A62;
-    height: 5rem;
-    display:flex;
-    align-items: center;
+  background-color: #397A62;
+  height: 5rem;
+  display: flex;
+  align-items: center;
 }
 
 .nav-list {
-    display:flex;
-    justify-content: space-around;
-    width: 1000%;
-    list-style: none;
-    margin: 0;
-    padding:0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-icon {
-   width:1.5rem;
-   height:1.5rem;
-} 
-.nav-item {
-    position: relative;
-  }
-  
-  
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
-   
-  
+.nav-item {
+  position: relative;
+}
+
+.flexbox {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+    /* margin: 5.5% 9.2%; */
+    padding: 7.8vh 5.5vw;
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    /* justify-items: stretch; */
+}
+
+
+
 .trees-icon a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .big-button {
-    position: fixed;
-    bottom: 5rem;
-    width: 7.5rem;        
-    height: 7.5rem; 
-    font-size: 18px;
-    border: none;
-    border-radius: 50%;
-    background-color: #397A62;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease;
-  }
-  
-  .big-button:hover {
-    background-color: #9147AE;
-  }
-  
-  .left-button {
-    left: 5rem;
-  }
-  
-  .right-button {
-    right: 5rem;
-  }
-  .button-icon {
-    width:2.5rem;
-    height:2.5rem;
- }
+  position: fixed;
+  bottom: 5rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background-color: #397A62;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
 
- 
+.big-button:hover {
+  background-color: #9147AE;
+}
+
+.left-button {
+  left: 5.5vw;
+  bottom: 7.8vh;
+}
+
+.right-button {
+  right: 5.5vw;
+  bottom: 7.8vh;
+}
+
+.button-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
