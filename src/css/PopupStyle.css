@@ -19,7 +19,7 @@ input-active rgba(255, 255, 255, 1)
     background-color: rgba(223, 240, 234, 1);
     margin: 0;
     border-radius: 25%;
-    width: 20%;
+    width: 30rem;
     /* min-width: ;
     max-width: ; */
     height: 60%;
@@ -31,7 +31,7 @@ input-active rgba(255, 255, 255, 1)
 .Popup-header {
     /* background-color: ; change for different popups... */
     margin: 0;
-    border-radius: 50%;
+    border-radius: 50px;
     width: 100%;
     height: 20%;
 }
@@ -50,7 +50,8 @@ input-active rgba(255, 255, 255, 1)
 
 .Popup-header ul {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+
 }
 
 /* START CHALLENGE */
@@ -69,7 +70,7 @@ input-active rgba(255, 255, 255, 1)
 .challenge-form fieldset {
     background-color: rgba(194, 215, 208, 1);
     margin: 0;
-    border-radius: 25%;
+    border-radius: 25px;
     border-style: none;
     padding: 2rem 1rem;
 }
@@ -106,7 +107,7 @@ input-active rgba(255, 255, 255, 1)
 .popup-section {
     background-color: rgba(194, 215, 208, 1);
     margin: 0;
-    border-radius: 25%;
+    border-radius: 25px;
     border-style: none;
     padding: 2rem 1rem;
     display: flex;
