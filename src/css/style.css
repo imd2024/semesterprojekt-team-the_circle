@@ -23,7 +23,15 @@ html, body{
 .nav-icon {
    width:1.5rem;
    height:1.5rem;
-}
+} 
+.nav-item {
+    position: relative;
+  }
+  
+  
+
+   
+  
 .trees-icon a {
     text-decoration: none;
 }
@@ -48,13 +56,15 @@ html, body{
   }
   
   .left-button {
-    left: 80px;
+    left: 5rem;
   }
   
   .right-button {
-    right: 80px;
+    right: 5rem;
   }
   .button-icon {
     width:2.5rem;
     height:2.5rem;
  }
+
+ 
