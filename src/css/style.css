@@ -27,6 +27,10 @@ html, body{
 .nav-item {
     position: relative;
   }
+
+  .nav-double-icon {
+   display:flex;
+  }
   
   .nav-label {
     position: absolute;
