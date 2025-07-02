@@ -1,0 +1,18 @@
+---
+import "../css/garden.css";
+import Tree from "../assets/Baum.svg";
+import Plant from "../assets/Pflanze.svg";
+const {size}= Astro.props
+let backgroundGardenClass = "garden-background"
+if (size ==="small"){
+    backgroundGardenClass="garden-background-small"
+}
+---
+
+<div class={backgroundGardenClass}>
+    <div class="garden">
+        <Tree class="tree" />
+        <Plant class="plant mid-plant" />
+        <Plant class="plant right-plant" />
+    </div>
+</div>

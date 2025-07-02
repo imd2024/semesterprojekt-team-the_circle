@@ -1,22 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import '../css/index.css';
-import Baum from "../assets/Baum.svg";
-import Pflanze from "../assets/Pflanze.svg";
+import Garden from "../components/Garden.astro";
 import SuccessButton from "../components/SuccessButton.astro";
 import ProfilButton from "../components/ProfilButton.astro";
+
+// function toggleGardenSize() {
+//     const garden = document.getElementById("garden");
+//     if (garden.size === "small") {
+//         garden.size = "";
+//         return;
+//     }
+//     garden.size = "";
+// }
 ---
 
 <Layout title="Greentopia - Home">
     <div class="flexbox">
-        <SuccessButton/>
-        <div class="background">
-            <div class="grid-garden">
-                <Baum />
-                <Pflanze />
-                <div class="background-flor"></div>
-            </div>
-        </div>
-        <ProfilButton/>
+        <Garden id="garden" />
+        <SuccessButton />
+        <ProfilButton />
     </div>
 </Layout>
