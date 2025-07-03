@@ -1,9 +1,10 @@
 ---
-import PopupStyle from "../css/PopupStyle.css"
+import "../css/PopupStyle.css"
 const { variant = 'orange, purple', title, description, iconSrc } = Astro.props;
+const{popup}= Astro.props
 ---
 
-<div class="popup">
+<div class="hidden" id={popup}>
     <header class={`popup-header header--${variant}`}>
     <ul class="header-layout">
         <li>
@@ -25,3 +26,6 @@ const { variant = 'orange, purple', title, description, iconSrc } = Astro.props;
     </main>
 </div>
 
+<!-- mit style auch CSS in der Komponente,
+ dann aber nur das was zu der Komponente gehört,
+ Vorteil alles an einem Ort -->
