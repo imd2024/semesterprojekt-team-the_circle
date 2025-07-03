@@ -1,6 +1,6 @@
 ---
 import PopupStyle from "../css/PopupStyle.css"
-import Popup from "./Popup.astro"
+import Popup from "./SidePopupMain.astro"
 ---
 
 <Popup
@@ -24,10 +24,13 @@ import Popup from "./Popup.astro"
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
                 <label for="challenge">Überlege Dir die genaue Challenge:</label><br>
+                <div class="random-layout">
+                    <div class="random-provisional"></div>
                     <!-- random options of challenges on button click -->
                     <input type="image" src="#" alt="randomiser" width="48" height="48">
                     <!-- icon dice and scale -->
-                <textarea id="challenge" name="challenge" rows="10" cols="30">
+                </div>
+                    <textarea id="challenge" name="challenge">
                     Ich ...
                 </textarea><br>
             </fieldset>
@@ -43,12 +46,12 @@ import Popup from "./Popup.astro"
                 </select>
             </fieldset>
         </div>
-        <div class="Challenge-layout">
-            <div>
+        <div class="challenge-end-layout">
+            <div class="popup-check">
                 <input type="checkbox" id="visibility" name="visibility" value="yes">
                 <label for="visibility"> sichtbar für Leute in Deinem Kreis</label>
             </div>
-            <input type="image" src="#" alt="Submit" width="48" height="48">
+            <input class="submit" type="image" src="#" alt="Submit" width="48" height="48">
         </div>
     </form>
 </Popup>
