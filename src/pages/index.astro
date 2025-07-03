@@ -28,10 +28,6 @@ import ProfilButton from "../components/ProfilButton.astro";
         }
 
         btn.addEventListener("click", function () {
-            garden.dispatchEvent(new Event("toggle"));
-        });
-
-        garden.addEventListener("toggle", function () {
             if (garden.className === "garden-background") {
                 garden.className = "garden-background-small";
                 return;
