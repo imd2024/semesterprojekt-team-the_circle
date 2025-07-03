@@ -3,21 +3,41 @@ import Layout from "../layouts/Layout.astro";
 import Garden from "../components/Garden.astro";
 import SuccessButton from "../components/SuccessButton.astro";
 import ProfilButton from "../components/ProfilButton.astro";
-
-// function toggleGardenSize() {
-//     const garden = document.getElementById("garden");
-//     if (garden.size === "small") {
-//         garden.size = "";
-//         return;
-//     }
-//     garden.size = "";
-// }
 ---
 
 <Layout title="Greentopia - Home">
     <div class="flexbox">
-        <Garden id="garden" />
-        <SuccessButton />
+        <Garden backgroundId="garden-id" />
+        <button class="big-button left-button" id="btn"></button>
+        <!-- Demo-Button um zu schauen ob Garten umschalten geht-->
+        <!-- <SuccessButton /> -->
         <ProfilButton />
     </div>
 </Layout>
+
+<script>
+    function main() {
+        const garden = document.getElementById("garden-id");
+        if (!garden) {
+            return;
+        }
+
+        const btn = document.getElementById("btn");
+        if (!btn) {
+            return;
+        }
+
+        btn.addEventListener("click", function () {
+            garden.dispatchEvent(new Event("toggle"));
+        });
+
+        garden.addEventListener("toggle", function () {
+            if (garden.className === "garden-background") {
+                garden.className = "garden-background-small";
+                return;
+            }
+            garden.className = "garden-background";
+        });
+    }
+    main();
+</script>

@@ -1,0 +1,9 @@
+---
+const {infotext} = Astro.props
+const {iconSrc} = Astro.props
+---
+
+<div class="info-popup">
+    <img src={iconSrc} alt="Image of your choosen Icon">
+    <p>{infotext}</p>
+</div>
