@@ -62,7 +62,7 @@ body {
     opacity: 1;
   }
 
-.flexbox {
+.flexbox-content {
     display: flex;
     /* justify-content: center; */
     flex-direction: row;

@@ -7,7 +7,8 @@ import SidePopupMain from "../components/SidePopupMain.astro";
 ---
 
 <Layout title="Greentopia - Home">
-    <div class="flexbox">
+    <div class="flexbox-content">
+        <div>
         <SidePopupMain popup="popup-id"> 
         </SidePopupMain>
         <Garden backgroundId="garden-id" />
@@ -15,7 +16,7 @@ import SidePopupMain from "../components/SidePopupMain.astro";
         Demo-Button um zu schauen ob Garten umschalten geht -->
         <SuccessButton id="btn"/>
         <ProfilButton />
-        
+        </div>
     </div>
 </Layout>
 
@@ -62,4 +63,5 @@ function main() {
         });
     }
     main();
+
 </script>
