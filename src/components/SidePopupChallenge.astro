@@ -1,6 +1,6 @@
 ---
-import "../css/SidePopUpStyle.css"
-import Popup from "./SidePopupMain.astro"
+import "../css/SidePopupStyle.css";
+import Popup from "./SidePopupMain.astro";
 ---
 
 <Popup
@@ -8,38 +8,55 @@ import Popup from "./SidePopupMain.astro"
     iconSrc="#"
     title="Neue Challenge"
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
-    >
+>
     <form class="challenge-form">
         <fieldset class="challenge-focus">
-            <label for="focus">im Themenfokus:</label><br>
+            <label for="focus">im Themenfokus:</label><br />
             <select id="focus" name="focus" required>
-                <option value="placeholder" disabled selected hidden>Wähle ein Thema</option>
+                <option value="placeholder" disabled selected hidden
+                    >Wähle ein Thema</option
+                >
                 <option value="own">eigener</option>
                 <option value="packaging">Verpackungen</option>
                 <option value="meatconsumption">Fleischkonsum</option>
                 <option value="others">nochAndere</option>
             </select>
-            <input type="image" src="#" alt="info" width="48" height="48">
+            <input type="image" src="#" alt="info" width="48" height="48" />
         </fieldset>
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
-                <label for="challenge">Überlege Dir die genaue Challenge:</label><br>
+                <label for="challenge">Überlege Dir die genaue Challenge:</label
+                ><br />
                 <div class="random-layout">
                     <div class="random-provisional"></div>
                     <!-- random options of challenges on button click -->
-                    <input type="image" src="#" alt="randomiser" width="48" height="48">
+                    <input
+                        type="image"
+                        src="#"
+                        alt="randomiser"
+                        width="48"
+                        height="48"
+                    />
                     <!-- icon dice and scale -->
                 </div>
-                    <textarea id="challenge" name="challenge">
+                <textarea id="challenge" name="challenge">
                     Ich ...
-                </textarea><br>
+                </textarea><br />
             </fieldset>
             <fieldset class="challenge-interval">
-                <label for="frequency">mit der Häufigkeit:</label><br>
-                <input type="number" id="frequency" name="frequency" min="1" required><br>
-                <label for="per">pro</label><br>
+                <label for="frequency">mit der Häufigkeit:</label><br />
+                <input
+                    type="number"
+                    id="frequency"
+                    name="frequency"
+                    min="1"
+                    required
+                /><br />
+                <label for="per">pro</label><br />
                 <select id="per" name="per" required>
-                    <option value="placeholder" disabled selected hidden>Interval</option>
+                    <option value="placeholder" disabled selected hidden
+                        >Interval</option
+                    >
                     <option value="day">Tag</option>
                     <option value="week">Woche</option>
                     <option value="month">Monat</option>
@@ -48,10 +65,24 @@ import Popup from "./SidePopupMain.astro"
         </div>
         <div class="challenge-end-layout">
             <div class="popup-check">
-                <input type="checkbox" id="visibility" name="visibility" value="yes">
-                <label for="visibility"> sichtbar für Leute in Deinem Kreis</label>
+                <input
+                    type="checkbox"
+                    id="visibility"
+                    name="visibility"
+                    value="yes"
+                />
+                <label for="visibility">
+                    sichtbar für Leute in Deinem Kreis</label
+                >
             </div>
-            <input class="submit" type="image" src="#" alt="Submit" width="48" height="48">
+            <input
+                class="submit"
+                type="image"
+                src="#"
+                alt="Submit"
+                width="48"
+                height="48"
+            />
         </div>
     </form>
 </Popup>
