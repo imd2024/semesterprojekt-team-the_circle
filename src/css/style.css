@@ -102,6 +102,10 @@ body {
 .big-button:hover {
   background-color: #9147AE;
 }
+.big-button:active {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  transform: scale(0.85);
+}
 
 .left-button {
   left: 5.5vw;
