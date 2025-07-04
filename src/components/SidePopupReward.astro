@@ -13,12 +13,13 @@ const icons00=[
         ]
 
 const icons01=[
-            { src: SquirrelIcon, alt: "Icon 1" },
+            { src: SquirrelIcon, alt: "Icon 1", id: "squirrel" },
             { src: ConstructionIcon, alt: "Icon 2" },
             { src: ConstructionIcon, alt: "Icon 3" },
         ]
 ---
 
+<div id="reward-popup">
 <Popup
     variant="purple"
     iconSrc={AddIcon}
@@ -39,3 +40,48 @@ const icons01=[
         icons={icons00}
     />
 </Popup>
+</div>
+
+<script>
+// Ensure the DOM is fully loaded before running the script
+document.addEventListener("DOMContentLoaded", function() {
+    const icon = document.getElementById("squirrel");
+    const challenge = document.getElementById("challenge-popup");
+    const reward = document.getElementById("reward-popup");
+
+    if (icon && challenge && reward) {
+        icon.addEventListener("click", function () {
+            reward.className = "hidden";
+            challenge.className = "visible";
+        });
+    }
+});
+
+    /* Function to handle the click event on the squirrel icon
+
+function main() {
+        const icon = document.getElementById("squirrel");
+        if (!icon) {
+            return;
+        }
+
+        const challenge = document.getElementById("challenge-popup");
+        if (!challenge) {
+            return;
+        }
+
+        const reward = document.getElementById("reward-popup");
+        if (!reward) {
+            return;
+        }
+
+        icon.addEventListener("click", function () {
+            // Hide reward, show challenge
+            reward.className = "hidden";
+            //challenge.className = "popup";
+        });
+    }
+
+    */
+
+</script>

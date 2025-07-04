@@ -1,6 +1,19 @@
 ---
 import "../css/SidePopUpStyle.css";
-const { title, icons } = Astro.props;
+
+type IconType = {
+  src: any; // Accepts any imported component
+  alt?: string;
+  id?: string;
+};
+
+type Props = {
+  title: string;
+  icons: IconType[];
+  id?: string;
+};
+
+const { title, icons, id } = Astro.props as Props;
 ---
 
 <section class="popup-section">
@@ -8,7 +21,7 @@ const { title, icons } = Astro.props;
     <div class="icon-container">
     {icons.map((icon) => {
       const IconComponent = icon.src
-      return <IconComponent class="reward-icon" alt={icon.alt ?? ''} width="48" height="48"/>
+      return <IconComponent class="reward-icon" aria-label={icon.alt ?? ''} id={icon.id} width="48" height="48"/>
     })}
   </div>
 </section>

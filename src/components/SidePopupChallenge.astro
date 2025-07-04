@@ -8,7 +8,7 @@ import CheckIcon from "../assets/check00.svg";
 const { popup } = Astro.props;
 ---
 
-<div> <!--class="hidden" id={popup} -->
+<div id="challenge-popup" class="hidden"> <!-- id={popup} -->
 <Popup
     variant="orange"
     iconSrc={SquirrelIcon}
@@ -25,7 +25,7 @@ const { popup } = Astro.props;
                 <option value="meatconsumption">Fleischkonsum</option>
                 <option value="others">nochAndere</option>
             </select>
-            <InfoIcon class="icon" alt="topic-information" width="48" height="48" />
+            <InfoIcon class="icon" aria-label="topic-information" width="48" height="48" />
         </fieldset>
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
@@ -36,7 +36,7 @@ const { popup } = Astro.props;
                     <!-- random options of challenges on button click -->
                     <DiceIcon
                         class="icon"
-                        alt="randomiser"
+                        aria-label="randomiser"
                         width="48"
                         height="48"
                     />
@@ -81,7 +81,7 @@ const { popup } = Astro.props;
             </div>
             <CheckIcon
                 class="icon"
-                alt="Submit"
+                aria-label="Submit"
                 width="48"
                 height="48"
             />
