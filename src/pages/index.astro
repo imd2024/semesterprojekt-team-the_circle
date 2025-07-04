@@ -75,7 +75,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (btn && reward) {
         btn.addEventListener("click", function () {
             btn.className = "hidden";
-            reward.className = "visible";
+            reward.classList.remove("hidden");
+            reward.classList.add("visible");
         });
     }
 });
@@ -87,7 +88,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (profilbtn && profil) {
         profilbtn.addEventListener("click", function () {
             profilbtn.className = "hidden";
-            profil.className = "visible";
+            profil.classList.remove("hidden");
+            profil.classList.add("visible");
         });
     }
 });
