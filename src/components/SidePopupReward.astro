@@ -2,36 +2,40 @@
 import "../css/SidePopupStyle.css";
 import Popup from "./SidePopupMain.astro";
 import PRSection from "./SidePopupRewardSection.astro";
+import AddIcon from "../assets/add00.svg";
+import ConstructionIcon from "../assets/under-construction00.svg";
+import SquirrelIcon from "../assets/squirrel00.svg";
+
+const icons00=[
+            { src: ConstructionIcon, alt: "Icon 1" },
+            { src: ConstructionIcon, alt: "Icon 2" },
+            { src: ConstructionIcon, alt: "Icon 3" },
+        ]
+
+const icons01=[
+            { src: SquirrelIcon, alt: "Icon 1" },
+            { src: ConstructionIcon, alt: "Icon 2" },
+            { src: ConstructionIcon, alt: "Icon 3" },
+        ]
 ---
 
 <Popup
     variant="purple"
-    iconSrc="../assets/add00.svg"
+    iconSrc={AddIcon}
     title="Belohnungen"
     description="alles, was Du durch Challenges bekommen kannst"
 >
     <PRSection
         title="Pflanzen"
-        icons={[
-            { src: "../assets/under-construction00.svg", alt: "Icon 1" },
-            { src: "../assets/under-construction00.svg", alt: "Icon 2" },
-            { src: "../assets/under-construction00.svg", alt: "Icon 3" },
-        ]}
+        icons={icons00}
     />
     <PRSection
         title="Tiere"
-        icons={[
-            { src: "../assets/squirrel00.svg", alt: "Icon 1" },
-            { src: "../assets/under-construction00.svg", alt: "Icon 2" },
-            { src: "../assets/under-construction00.svg", alt: "Icon 3" },
-        ]}
+        icons={icons01}
+
     />
     <PRSection
         title="Steine"
-        icons={[
-            { src: "../assets/under-construction00.svg", alt: "Icon 1" },
-            { src: "../assets/under-construction00.svg", alt: "Icon 2" },
-            { src: "../assets/under-construction00.svg", alt: "Icon 3" },
-        ]}
+        icons={icons00}
     />
 </Popup>

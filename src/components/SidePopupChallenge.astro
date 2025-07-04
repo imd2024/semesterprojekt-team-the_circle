@@ -1,11 +1,17 @@
 ---
 import "../css/SidePopupStyle.css";
 import Popup from "./SidePopupMain.astro";
+import SquirrelIcon from "../assets/squirrel00.svg";
+import InfoIcon from "../assets/info00.svg";
+import DiceIcon from "../assets/dice00.svg";
+import CheckIcon from "../assets/check00.svg";
+const { popup } = Astro.props;
 ---
 
+<div> <!--class="hidden" id={popup} -->
 <Popup
     variant="orange"
-    iconSrc="../assets/squirrel00.svg"
+    iconSrc={SquirrelIcon}
     title="Neue Challenge"
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
 >
@@ -19,7 +25,7 @@ import Popup from "./SidePopupMain.astro";
                 <option value="meatconsumption">Fleischkonsum</option>
                 <option value="others">nochAndere</option>
             </select>
-            <input type="image" src="../assets/info00.svg" alt="topic-information" width="48" height="48" />
+            <InfoIcon class="icon" alt="topic-information" width="48" height="48" />
         </fieldset>
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
@@ -28,14 +34,13 @@ import Popup from "./SidePopupMain.astro";
                 <div class="random-layout">
                     <div class="random-provisional"></div>
                     <!-- random options of challenges on button click -->
-                    <input
-                        type="image"
-                        src="../assets/dice00.svg"
+                    <DiceIcon
+                        class="icon"
                         alt="randomiser"
                         width="48"
                         height="48"
                     />
-                    <!-- icon dice and scale -->
+                    <!-- icon dice and scale? -->
                 </div>
                 <textarea id="challenge" name="challenge">
                     Ich ...
@@ -64,6 +69,7 @@ import Popup from "./SidePopupMain.astro";
         <div class="challenge-end-layout">
             <div class="popup-check">
                 <input
+                    class="checkbox"
                     type="checkbox"
                     id="visibility"
                     name="visibility"
@@ -73,10 +79,8 @@ import Popup from "./SidePopupMain.astro";
                     sichtbar für Leute in Deinem Kreis</label
                 >
             </div>
-            <input
-                class="submit"
-                type="image"
-                src="../assets/check00.svg"
+            <CheckIcon
+                class="icon"
                 alt="Submit"
                 width="48"
                 height="48"
@@ -84,3 +88,4 @@ import Popup from "./SidePopupMain.astro";
         </div>
     </form>
 </Popup>
+</div>

@@ -2,14 +2,17 @@
 import "../css/SidePopupStyle.css";
 import Popup from "./SidePopupMain.astro";
 import Construction from "../assets/under-construction00.svg"
+import ProfilIcon from "../assets/profil00.svg";
 ---
 
 <Popup
     variant="purple"
-    iconSrc="../assets/under-construction00.svg"
+    iconSrc={ProfilIcon}
     title="Dein Bereich"
     description="Hier findest Du Gruppen-, Garten- und generelle Einstellungen"
 >
-    <Construction/>
+    <div class="profil-content">
+        <Construction class="construction-img"/>
+    </div>
     
 </Popup>

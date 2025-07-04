@@ -6,8 +6,9 @@ const { title, icons } = Astro.props;
 <section class="popup-section">
     <h3>{title}</h3>
     <div class="icon-container">
-    {icons.map((icon: { src: string | null | undefined; alt: "Belohnungsvorschau"; }) => (
-      <img class="reward-icon" src={icon.src} alt={icon.alt ?? ''} width="48" height="48"/>
-    ))}
+    {icons.map((icon) => {
+      const IconComponent = icon.src
+      return <IconComponent class="reward-icon" alt={icon.alt ?? ''} width="48" height="48"/>
+    })}
   </div>
 </section>
