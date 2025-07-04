@@ -3,19 +3,22 @@ import Layout from "../layouts/Layout.astro";
 import Garden from "../components/Garden.astro";
 import SuccessButton from "../components/SuccessButton.astro";
 import ProfilButton from "../components/ProfilButton.astro";
-import SidePopupMain from "../components/SidePopupMain.astro";
+import Challenge from "../components/SidePopupChallenge.astro";
+import Reward from "../components/SidePopupReward.astro";
+import Profil from "../components/SidePopupProfil.astro";
 ---
 
 <Layout title="Greentopia - Home">
     <div class="flexbox-content">
         <div>
-        <SidePopupMain popup="popup-id"> 
-        </SidePopupMain>
+        <Challenge/>
+        <Reward/>
         <Garden backgroundId="garden-id" />
         <!-- <button class="big-button left-button" id="btn"></button>
         Demo-Button um zu schauen ob Garten umschalten geht -->
+        <Profil/>
         <SuccessButton id="btn"/>
-        <ProfilButton />
+        <ProfilButton id="p-btn"/>
         </div>
     </div>
 </Layout>
@@ -43,6 +46,7 @@ import SidePopupMain from "../components/SidePopupMain.astro";
     }
     garden();
 
+/*
 function main() {
         const popup = document.getElementById("popup-id");
         if (!popup) {
@@ -62,7 +66,31 @@ function main() {
             popup.className = "hidden";
         });
     }
+*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById("btn");
+    const reward = document.getElementById("reward-popup");
+
+    if (btn && reward) {
+        btn.addEventListener("click", function () {
+            btn.className = "hidden";
+            reward.className = "visible";
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const profilbtn = document.getElementById("p-btn");
+    const profil = document.getElementById("profil-popup");
+
+    if (profilbtn && profil) {
+        profilbtn.addEventListener("click", function () {
+            profilbtn.className = "hidden";
+            profil.className = "visible";
+        });
+    }
+});
     
-    main();
 
 </script>
