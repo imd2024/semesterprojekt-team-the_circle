@@ -5,7 +5,7 @@ import Popup from "./SidePopupMain.astro";
 
 <Popup
     variant="orange"
-    iconSrc="#"
+    iconSrc="../assets/squirrel00.svg"
     title="Neue Challenge"
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
 >
@@ -13,15 +13,13 @@ import Popup from "./SidePopupMain.astro";
         <fieldset class="challenge-focus">
             <label for="focus">im Themenfokus:</label><br />
             <select id="focus" name="focus" required>
-                <option value="placeholder" disabled selected hidden
-                    >Wähle ein Thema</option
-                >
+                <option value="placeholder" disabled selected hidden>Wähle ein Thema</option>
                 <option value="own">eigener</option>
                 <option value="packaging">Verpackungen</option>
                 <option value="meatconsumption">Fleischkonsum</option>
                 <option value="others">nochAndere</option>
             </select>
-            <input type="image" src="#" alt="info" width="48" height="48" />
+            <input type="image" src="../assets/info00.svg" alt="topic-information" width="48" height="48" />
         </fieldset>
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
@@ -32,7 +30,7 @@ import Popup from "./SidePopupMain.astro";
                     <!-- random options of challenges on button click -->
                     <input
                         type="image"
-                        src="#"
+                        src="../assets/dice00.svg"
                         alt="randomiser"
                         width="48"
                         height="48"
@@ -78,7 +76,7 @@ import Popup from "./SidePopupMain.astro";
             <input
                 class="submit"
                 type="image"
-                src="#"
+                src="../assets/check00.svg"
                 alt="Submit"
                 width="48"
                 height="48"
