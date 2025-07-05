@@ -19,13 +19,13 @@ input-active rgba(255, 255, 255, 1)
 }
 h1 {
     font-size: 20px;
-    margin: 0.5rem 0.5rem 0.2rem 0.5rem;
+    margin: 0.2rem 0.2rem 0.1rem 0.2rem;
     padding: 0;
 }
 
 p, h3, label {
     font-size: 12px;
-    margin: 0 0.5rem;
+    margin: 0 0.2rem;
     padding: 0;
 }
 
@@ -67,23 +67,31 @@ textarea {
     background-color: rgba(223, 240, 234, 1);
     margin: 0;
     border-radius: 50px;
-    width: 488px;
-    /* min-width: ;
-    max-width: ; */
-    height: 671px;
+    width: 30vw;
+    min-width: 350px;
+    max-width: 400px;
+    height: 60vh;
     /* min-height: ;
     max-height: ; */
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .popup-header {
     /* background-color: ; change for different popups... */
     margin: 0;
-    padding: 1rem 0.5rem;
+    padding: 0;
     border-radius: 50px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.33);
     width: 100%;
-    height: 109px;
+    height: 9vh;
     color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 /* vordefinierte Farbklassen */
@@ -97,17 +105,29 @@ textarea {
 .header-layout {
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 95%;
     list-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+}
+
+/* Text sould be a little to the right */
+.header-text {
+    margin: 0 0 0 0.2rem;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.2rem;
 }
 
 .popup-content {
-    margin: 0;
-    padding: 0.2rem 0.3rem 0.5rem 0.3rem;
+    margin: 10px 0;
+    padding: 0;
+    width: 90%;
     display: flex;
     align-items: center;
 }
@@ -118,19 +138,54 @@ textarea {
     margin: 0;
     padding: 0;
     width: 100%;
-    /* min-width max-width */
     height: 100%;
-    /* min-height max-height */
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .challenge-form fieldset {
     background-color: rgba(194, 215, 208, 1);
-    margin: 0.2rem;
+    margin: 0;
+    padding: 1rem 0.7rem 0.5rem 0.7rem;
+    width: 100%;
+    height: fit-content;
     border-radius: 25px;
     border-style: none;
-    padding: 0.2rem 0.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.challenge-form input, select, textarea, option {
+    background-color: rgba(255, 255, 255, 0.66);
+    border: none;
+    border-radius: 27px;
+    padding: 0 0.5rem;
+    height: 24px;
+    /* correct font yet to import */
+    font-family: Inter, Robo, sans sans-serif thin;
+    font-size: 16px;
+}
+
+.challenge-form input:hover, select:hover, textarea:hover, option:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transition: background-color 0.3s ease;
+}
+
+.challenge-form input:focus, select:focus, textarea:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: black solid 1px;
+    transition: outline 0.3s ease;
+}
+
+.challenge-form input:not(:placeholder-shown),
+.challenge-form textarea:not(:placeholder-shown),
+.challenge-form input:valid,
+.challenge-form select:valid,
+.challenge-form textarea:valid {
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .challenge-layout {
@@ -139,22 +194,26 @@ textarea {
     height: 50%;
     display: flex;
     flex-direction: row;
+    gap: 0.5rem;
+}
+
+.challenge-start-layout {
+    display: flex;
+    flex-direction: row;
 }
 
 .challenge-focus {
     /* min max */
-    height: 5%;
+    height: auto;
 }
 
 .challenge-detail {
-    width: 70%;
-    /* min max */
-    height: auto;
+    width: 66%;
+    height: fit-content;
 }
 
 .challenge-interval {
     width: 30%;
-    /*min max */
     height: auto;
 }
 
@@ -163,19 +222,13 @@ textarea {
     padding: 0;
     width: 100%;
     display: flex;
-    flex-direction: column;
-}
-
-.random-provisional {
-    margin: 0;
-    padding: 0;
-    width: 70%;
-    background-color: white;
+    flex-direction: row;
 }
 
 .challenge-end-layout {
     margin: 3rem 0 0 0;
     padding: 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -222,7 +275,9 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: auto;
+    gap: 0.5rem;
+    /* scrolling yet to work */
+    overflow-y: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
 }
@@ -232,19 +287,20 @@ textarea {
 
 .popup-section {
     background-color: rgba(194, 215, 208, 1);
-    margin: 0.2rem;
-    padding: 0.5rem 0.2rem;
+    margin: 0;
+    padding: 1rem 0.7rem 0.5rem 0.7rem;
     width: 100%;
     height: fit-content;
     border-radius: 25px;
     border-style: none;
     display: flex;
     flex-direction: column;
+    gap: 0.2rem;
 }
 
-.icon.container {
-    margin: 0;
-    padding: 0 0.2rem;
+.icon-container {
+    margin: 0 0 0 0.5rem;
+    padding: 0;
     width: 100%;
     /* min max */
     height: fit-content;
@@ -271,7 +327,7 @@ textarea {
 
 .profil-content {
     margin: 0;
-    padding: 0.5rem;
+    padding: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -285,7 +341,6 @@ textarea {
     width: 100%;
     height: auto;
     max-height: 100%;
-    border-radius: 25px;
 }
 
 /* END PROFIL */

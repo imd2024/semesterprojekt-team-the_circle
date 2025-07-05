@@ -17,8 +17,8 @@ const { title, icons, id } = Astro.props as Props;
 ---
 
 <section class="popup-section">
-    <h3>{title}</h3>
-    <div class="icon-container">
+  <h3>{title}</h3>
+  <div class="icon-container">
     {icons.map((icon) => {
       const IconComponent = icon.src
       return <IconComponent class="reward-icon" aria-label={icon.alt ?? ''} id={icon.id} width="48" height="48"/>
