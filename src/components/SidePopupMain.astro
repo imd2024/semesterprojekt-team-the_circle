@@ -1,11 +1,17 @@
 ---
 import "../css/SidePopupStyle.css";
-const { variant = "orange, purple", title, description, iconSrc: Icon } = Astro.props;
-const { popup } = Astro.props;
+import MissingIcon from "../assets/under-construction00.svg";
+const {
+    variant = "orange, purple",
+    title,
+    description,
+    iconSrc: Icon = MissingIcon,
+    popup,
+} = Astro.props;
 import HelpIcon from "../assets/help00.svg";
 ---
 
-<div class="popup">
+<div class="popup hidden" id={popup}>
     <header class={`popup-header header--${variant}`}>
         <ul class="header-layout">
             <li>
