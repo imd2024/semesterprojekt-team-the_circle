@@ -3,51 +3,52 @@ import Layout from "../layouts/Layout.astro";
 import Garden from "../components/Garden.astro";
 import SuccessButton from "../components/SuccessButton.astro";
 import ProfilButton from "../components/ProfilButton.astro";
+import SidePopupMain from "../components/SidePopupMain.astro";
 import Challenge from "../components/SidePopupChallenge.astro";
 import Reward from "../components/SidePopupReward.astro";
 import Profil from "../components/SidePopupProfil.astro";
 import OverPopUpNotification from "../components/OverPopUpNotification.astro";
+import OverPopupSuccess from "../components/OverPopupSuccess.astro";
 ---
 
 <Layout title="Greentopia - Home">
     <div class="flexbox-content">
-        <div>
+        <SidePopupMain popup="popup-id" />
         <Challenge/>
         <Reward/>
         <Garden backgroundId="garden-id" />
         <!-- <button class="big-button left-button" id="btn"></button>
         Demo-Button um zu schauen ob Garten umschalten geht -->
         <Profil/>
-        <SuccessButton id="btn"/>
+        <SuccessButton id="btn" />
         <ProfilButton id="p-btn"/>
-        </div>
     </div>
 </Layout>
 
 <script>
+    const popup = document.getElementById("popup-id");
+    const garden = document.getElementById("garden-id");
+    const btn = document.getElementById("btn");
 
-     function garden() {
-        const garden = document.getElementById("garden-id");
+    function gardenToggle() {
         if (!garden) {
             return;
         }
 
-     const btn = document.getElementById("btn");
-       if (!btn) {
-           return;
-       }
+        if (!btn) {
+            return;
+        }
 
         btn.addEventListener("click", function () {
-           if (garden.className === "garden-background") {
+            if (garden.className === "garden-background") {
                 garden.className = "garden-background-small";
                 return;
             }
             garden.className = "garden-background";
         });
     }
-    garden();
+    gardenToggle();
 
-/*
 function main() {
         const popup = document.getElementById("popup-id");
         if (!popup) {
@@ -60,14 +61,16 @@ function main() {
         }
 
         btn.addEventListener("click", function () {
-            if (popup.className === "hidden") {
-                popup.className = "popup";
+            if (popup.classList.contains("hidden")) {
+                popup.classList.remove("hidden");
                 return;
             }
-            popup.className = "hidden";
+            popup.classList.add("hidden");
         });
     }
-*/
+    main();
+
+    //changed code:
 
 // when the button is clicked -> show the reward popup and hide the button
 // also hide the profil popup if it is visible
