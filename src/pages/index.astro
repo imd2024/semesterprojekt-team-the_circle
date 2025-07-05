@@ -69,32 +69,52 @@ function main() {
     }
 */
 
+// when the button is clicked -> show the reward popup and hide the button
+// also hide the profil popup if it is visible
 document.addEventListener("DOMContentLoaded", function() {
     const btn = document.getElementById("btn");
     const reward = document.getElementById("reward-popup");
+    const profil = document.getElementById("profil-popup");
 
     if (btn && reward) {
         btn.addEventListener("click", function () {
             btn.className = "hidden";
             reward.classList.remove("hidden");
             reward.classList.add("visible");
+            // Hide the profil popup if it is visible
+            if (profil && profil.classList.contains("visible")) {
+                console.log('Closing ProfilPopup');
+                profil.classList.remove("visible");
+                profil.classList.add("hidden");
+            }
         });
     }
 });
 
+// when the profil button is clicked -> show the profil popup and hide the button
+// also hide the reward popup if it is visible
 document.addEventListener("DOMContentLoaded", function() {
     const profilbtn = document.getElementById("p-btn");
     const profil = document.getElementById("profil-popup");
+    const reward = document.getElementById("reward-popup");
 
     if (profilbtn && profil) {
         profilbtn.addEventListener("click", function () {
             profilbtn.className = "hidden";
             profil.classList.remove("hidden");
             profil.classList.add("visible");
+            // Hide the reward popup if it is visible
+            if (reward && reward.classList.contains("visible")) {
+                console.log('Closing RewardPopup');
+                reward.classList.remove("visible");
+                reward.classList.add("hidden");
+            }
         });
     }
 });
 
+// when the header icon is clicked -> close the currently visible popup
+// if the reward popup is visible, close it; if the challenge popup is visible, close it and open the reward popup; if the profil popup is visible, close it
     document.addEventListener("DOMContentLoaded", function() {
     const HeaderIcon = document.getElementById("header-icon");
     const RewardPopup = document.getElementById("reward-popup");
@@ -126,5 +146,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
     
+
+    // Close the challenge popup when the submit icon is clicked
+    document.addEventListener("DOMContentLoaded", function() {
+        const ChallengePopup = document.getElementById("challenge-popup");
+        const submitIcon = document.getElementById("submit-icon");
+        const btn = document.getElementById("btn");
+
+        if (submitIcon && ChallengePopup) {
+            submitIcon.addEventListener("click", function ()  {
+                ChallengePopup.classList.remove("visible");
+                ChallengePopup.classList.add("hidden");
+                if (btn && btn.classList.contains("hidden")) {
+                    btn.className = "visible"; // Show the button again
+                }
+                return;
+            });
+        }
+        
+    });
 
 </script>
