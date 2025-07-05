@@ -79,13 +79,39 @@ const { popup } = Astro.props;
                     sichtbar für Leute in Deinem Kreis</label
                 >
             </div>
-            <CheckIcon
-                id="submit-icon"
-                class="icon"
-                aria-label="Submit"
-                width="48"
-                height="48"
-            />
+            <button type="submit" disabled id="challenge-submit">
+                <CheckIcon
+                    class="icon"
+                    aria-label="Submit"
+                    width="48"
+                    height="48"
+                />
+            </button>
+            <!-- submit icon, when clicked close the popup -->
+            <script type="module">
+                const form = document.querySelector('.challenge-form');
+                const submit = document.getElementById('challenge-submit');
+                const requiredFields = form.querySelectorAll('[required]');
+
+                function checkValidity() {
+                    submit.disabled = !form.checkValidity();
+                }
+
+                requiredFields.forEach(field => {
+                    field.addEventListener('input', checkValidity);
+                    field.addEventListener('change', checkValidity);
+                });
+
+                // Initial check
+                checkValidity();
+
+                if (submit.disabled) {
+                    console.log('Submit button is disabled');
+                //how do we let the user know that the form is not valid?
+                } else {
+                    console.log('Submit button is enabled');
+                }
+            </script>
         </div>
     </form>
 </Popup>

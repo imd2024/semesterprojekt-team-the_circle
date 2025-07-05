@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Close the challenge popup when the submit icon is clicked
     document.addEventListener("DOMContentLoaded", function() {
         const ChallengePopup = document.getElementById("challenge-popup");
-        const submitIcon = document.getElementById("submit-icon");
+        const submitIcon = document.getElementById("challenge-submit");
         const btn = document.getElementById("btn");
 
         if (submitIcon && ChallengePopup) {
@@ -158,9 +158,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 ChallengePopup.classList.remove("visible");
                 ChallengePopup.classList.add("hidden");
                 if (btn && btn.classList.contains("hidden")) {
-                    btn.className = "visible"; // Show the button again
+                    btn.classList.remove("hidden");
+                    btn.classList.add("visible"); // Show the button again
                 }
-                return;
             });
         }
         
