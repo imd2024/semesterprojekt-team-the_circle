@@ -1,10 +1,9 @@
 ---
-const { href, icon, label } = Astro.props;
+const { href, icon: Icon, label } = Astro.props;
 ---
-
 <li class="nav-item">
   <a href={href}>
-    <img src={icon} alt={label} class="nav-icon" />
+    { Icon && <Icon class="nav-icon" aria-label={label} /> }
     <span class="nav-label">{label}</span>
   </a>
 </li>

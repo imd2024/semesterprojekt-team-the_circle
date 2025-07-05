@@ -1,22 +1,21 @@
 ---
 import NavItem from './NavItem.astro'
+import Tree from "../assets/tree00.svg";
+import Gallery from "../assets/gallery00.svg";
+import Info from  "../assets/info00.svg";
+import Challenge from "../assets/challenge00.svg";
+import Chats from "../assets/chats00.svg";
+import Woods from "../assets/woods00.svg";
+
 ---
 <nav class="navbar">
     <ul class="nav-list">
-      <NavItem href="/" icon="/tree-solid.svg" label="dein Garten" />
-      <NavItem href="/construction" icon="/image-solid.svg" label="Gallerie" />
-      <NavItem href="/construction" icon="/flag-checkered-solid.svg" label="deine Challenges" />
-      <NavItem href="/construction" icon="/lightbulb-regular.svg" label="Themen Informationen" />
-      <NavItem href="/construction" icon="/comment-regular.svg" label="deine Chats" />
-      <li class="nav-item">
-          <a href="/construction">
-            <div class="nav-double-icon">
-              <img src="/tree-solid.svg" alt="tree" class="nav-icon" />
-              <img src="/tree-solid.svg" alt="tree" class="nav-icon" />
-            </div>
-            <span class="nav-label">Gärten Gallerie</span>
-          </a>
-        </li>
+      <NavItem href="/"  icon={Tree} label="dein Garten" />
+      <NavItem href="/construction" icon={Gallery} label="Gallerie" />
+      <NavItem href="/construction" icon={Info} label="deine Challenges" />
+      <NavItem href="/construction" icon={Challenge} label="Themen Informationen" />
+      <NavItem href="/construction" icon={Chats} label="deine Chats" />
+      <NavItem href="/construction" icon={Woods} label="Gärten Gallerie" />
     </ul>
   </nav>
   
