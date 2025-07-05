@@ -1,15 +1,15 @@
 ---
-import "../css/SidePopUpStyle.css";
+import "../css/SidePopupStyle.css";
 const { variant = "orange, purple", title, description, iconSrc: Icon } = Astro.props;
 const { popup } = Astro.props;
 import HelpIcon from "../assets/help00.svg";
 ---
 
-<div class="popup"> <!--class="hidden" id={popup} -->
+<div class="popup">
     <header class={`popup-header header--${variant}`}>
         <ul class="header-layout">
             <li>
-                <Icon class="icon" alt="Popup-Icon" width="48" height="48" />
+                <Icon id="header-icon" class="icon" alt="Popup-Icon" width="48" height="48" />
                 <!--fetched from input before?-->
             </li>
             <li>
