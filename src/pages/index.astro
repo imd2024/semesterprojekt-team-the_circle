@@ -69,16 +69,18 @@ function main() {
     }
 */
 
-// when the button is clicked -> show the reward popup and hide the button
-// also hide the profil popup if it is visible
+// when the button is clicked -> show the corresponding popup and hide the button
+// also hide the other popup if it is visible
 document.addEventListener("DOMContentLoaded", function() {
     const btn = document.getElementById("btn");
+    const profilbtn = document.getElementById("p-btn");
     const reward = document.getElementById("reward-popup");
     const profil = document.getElementById("profil-popup");
 
     if (btn && reward) {
         btn.addEventListener("click", function () {
-            btn.className = "hidden";
+            // Show the reward popup and hide the button
+            btn.classList.add("hidden");
             reward.classList.remove("hidden");
             reward.classList.add("visible");
             // Hide the profil popup if it is visible
@@ -86,26 +88,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log('Closing ProfilPopup');
                 profil.classList.remove("visible");
                 profil.classList.add("hidden");
+                if (profilbtn) {
+                    profilbtn.classList.remove("hidden");
+                    profilbtn.className = "big-button right-button";
+                }
             }
         });
-        if (reward && reward.classList.contains("hidden")) {
-        btn.classList.remove("hidden");
-        btn.classList.add("visible");
+        /* Show the button if the reward popup is hidden
+        if (reward.classList.contains("hidden")) {
+            btn.classList.remove("hidden");
+            btn.className = "big-button left-button";
+        }*/
     }
-    }
-    
+
 });
 
-// when the profil button is clicked -> show the profil popup and hide the button
-// also hide the reward popup if it is visible
+// when the button is clicked -> show the corresponding popup and hide the button
+// also hide the other popup if it is visible
 document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById("btn");
     const profilbtn = document.getElementById("p-btn");
-    const profil = document.getElementById("profil-popup");
     const reward = document.getElementById("reward-popup");
+    const profil = document.getElementById("profil-popup");
 
     if (profilbtn && profil) {
         profilbtn.addEventListener("click", function () {
-            profilbtn.className = "hidden";
+            // Show the profil popup and hide the profil button
+            profilbtn.classList.add("hidden");
             profil.classList.remove("hidden");
             profil.classList.add("visible");
             // Hide the reward popup if it is visible
@@ -113,44 +122,66 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log('Closing RewardPopup');
                 reward.classList.remove("visible");
                 reward.classList.add("hidden");
+                if (btn) {
+                    btn.classList.remove("hidden");
+                    btn.className = "big-button left-button";
+                }
             }
         });
+        /* Show the profil button if the profil popup is hidden
+        if (profil.classList.contains("hidden")) {
+            profilbtn.classList.remove("hidden");
+            profilbtn.className = "big-button right-button";
+        }*/
     }
 });
 
 // when the header icon is clicked -> close the currently visible popup
 // if the reward popup is visible, close it; if the challenge popup is visible, close it and open the reward popup; if the profil popup is visible, close it
-    document.addEventListener("DOMContentLoaded", function() {
-    const HeaderIcon = document.getElementById("header-icon");
+document.addEventListener("DOMContentLoaded", function() {
     const RewardPopup = document.getElementById("reward-popup");
     const ChallengePopup = document.getElementById("challenge-popup");
     const ProfilPopup = document.getElementById("profil-popup");
+    const headerIcon = document.querySelectorAll("#header-icon");
+            for (const icon of headerIcon) {
+                icon.addEventListener("click", handleHeaderIconClick);
+            }
 
-    if (HeaderIcon) {
-        HeaderIcon.addEventListener("click", function () {
+    function handleHeaderIconClick() {
             // Reward Popup
             if (RewardPopup && RewardPopup.classList.contains("visible")) {
                 console.log('Closing RewardPopup');
                 RewardPopup.classList.remove("visible");
                 RewardPopup.classList.add("hidden");
+                const btn = document.getElementById("btn");
+                if (btn) {
+                    btn.classList.remove("hidden");
+                    btn.className = "big-button left-button";
+                }
             }
             // Challenge Popup
             if (ChallengePopup && ChallengePopup.classList.contains("visible")) {
                 console.log('Closing ChallengePopup');
                 ChallengePopup.classList.remove("visible");
                 ChallengePopup.classList.add("hidden");
-                RewardPopup.classList.add("visible");
+                if (RewardPopup) {
+                    RewardPopup.classList.remove("hidden");
+                    RewardPopup.classList.add("visible");
+                }
             }
             // Profil Popup
             if (ProfilPopup && ProfilPopup.classList.contains("visible")) {
                 console.log('Closing ProfilPopup');
                 ProfilPopup.classList.remove("visible");
                 ProfilPopup.classList.add("hidden");
+                const profilbtn = document.getElementById("p-btn");
+                if (profilbtn) {
+                    profilbtn.classList.remove("hidden");
+                    profilbtn.className = "big-button right-button";
+                }
             }
-        });
     }
 });
-    
 
     // Close the challenge popup when the submit icon is clicked
     document.addEventListener("DOMContentLoaded", function() {
