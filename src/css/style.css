@@ -15,7 +15,7 @@ body {
 
 .navbar {
   background-color: #397A62;
-  height: 5rem;
+  height: 7.7rem;
   display: flex;
   align-items: center;
 }
@@ -30,8 +30,8 @@ body {
 }
 
 .nav-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 7.875rem;
+  height: 4.5rem;
 }
 
 .nav-item {
@@ -44,7 +44,7 @@ body {
   
   .nav-label {
     position: absolute;
-    top: 3rem;
+    top: 6rem;
     left: 50%;
     transform: translateX(-50%);
     background-color: #397A62;
@@ -118,8 +118,8 @@ body {
 }
 
 .button-icon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 .construction {
   position: absolute;

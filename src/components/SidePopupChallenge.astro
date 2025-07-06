@@ -16,35 +16,63 @@ const { popup } = Astro.props;
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
 >
     <form class="challenge-form">
-        <fieldset class="challenge-focus">
+        <fieldset class="challenge-start-layout">
+            <div class="challenge-focus">
             <label for="focus">im Themenfokus:</label><br />
             <select id="focus" name="focus" required>
-                <option value="placeholder" disabled selected hidden>Wähle ein Thema</option>
+                <option value="" disabled selected hidden>Wähle ein Thema</option>
                 <option value="own">eigener</option>
                 <option value="packaging">Verpackungen</option>
                 <option value="meatconsumption">Fleischkonsum</option>
                 <option value="others">nochAndere</option>
             </select>
+            </div>
             <InfoIcon class="icon" aria-label="topic-information" width="48" height="48" />
         </fieldset>
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
-                <label for="challenge">Überlege Dir die genaue Challenge:</label
-                ><br />
+                <label for="challenge">Überlege Dir die genaue Challenge:</label><br />
                 <div class="random-layout">
-                    <div class="random-provisional"></div>
                     <!-- random options of challenges on button click -->
-                    <DiceIcon
-                        class="icon"
-                        aria-label="randomiser"
-                        width="48"
-                        height="48"
+                    <input
+                        type="text"
+                        id="random"
+                        name="random"
+                        placeholder="Random Challenge"
                     />
-                    <!-- icon dice and scale? -->
+                    <!-- random button to get a random challenge -->
+                    <button
+                        type="button"
+                        class="random-button"
+                        id="random-button"
+                        aria-label="random challenge"
+                    >
+                        <DiceIcon
+                            class="icon"
+                            aria-label="dice"
+                            width="48"
+                            height="48"
+                        />
+                    </button>                    
+                    <script type="module">
+                        const randomChallenges = [
+                            "Ich werde jeden Tag 10 Minuten spazieren gehen.",
+                            "Ich verzichte eine Woche auf Einwegplastik.",
+                            "Ich esse diese Woche kein Fleisch.",
+                            "Ich bringe meine eigene Tasche zum Einkaufen mit.",
+                            "Ich trinke nur Leitungswasser."
+                        ];
+                        const randomBtn = document.getElementById('random-button');
+                        const randomChallenge = document.getElementById('random');
+                        if (randomBtn && randomChallenge) {
+                            randomBtn.addEventListener('click', () => {
+                                const randomIndex = Math.floor(Math.random() * randomChallenges.length);
+                                randomChallenge.value = randomChallenges[randomIndex];
+                            });
+                        }
+                    </script>
                 </div>
-                <textarea id="challenge" name="challenge">
-                    Ich ...
-                </textarea><br />
+                <textarea id="challenge" name="challenge" placeholder="Ich..."></textarea><br />
             </fieldset>
             <fieldset class="challenge-interval">
                 <label for="frequency">mit der Häufigkeit:</label><br />
@@ -52,14 +80,13 @@ const { popup } = Astro.props;
                     type="number"
                     id="frequency"
                     name="frequency"
+                    placeholder="Anzahl"
                     min="1"
                     required
                 /><br />
-                <label for="per">pro</label><br />
+                <label for="per">pro</label><br/>
                 <select id="per" name="per" required>
-                    <option value="placeholder" disabled selected hidden
-                        >Interval</option
-                    >
+                    <option value="" disabled selected hidden>Interval</option>
                     <option value="day">Tag</option>
                     <option value="week">Woche</option>
                     <option value="month">Monat</option>
@@ -86,7 +113,6 @@ const { popup } = Astro.props;
                     height="48"
                 />
             </button>
-            <!-- submit icon, when clicked close the popup -->
             <script type="module">
                 const form = document.querySelector('.challenge-form');
                 const submit = document.getElementById('challenge-submit');
@@ -110,6 +136,18 @@ const { popup } = Astro.props;
                 } else {
                     console.log('Submit button is enabled');
                 }
+
+                // Add event listener for random button
+                const randomButton = document.getElementById('random-button');
+                if (randomButton) {
+                    randomButton.addEventListener('click', () => {
+                        const challengeInput = document.getElementById('challenge');
+                        if (challengeInput) {
+                            challengeInput.value = 'Ich werde jeden Tag 10 Minuten spazieren gehen.';
+                        }
+                    });
+                }
+            </script>
             </script>
         </div>
     </form>
