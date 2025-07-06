@@ -12,34 +12,41 @@ const { popup } = Astro.props;
 <Popup
     variant="orange"
     iconSrc={SquirrelIcon}
+    class="squirrel"
     title="Neue Challenge"
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
 >
     <form class="challenge-form">
         <fieldset class="challenge-start-layout">
             <div class="challenge-focus">
-            <label for="focus">im Themenfokus:</label><br />
-            <select id="focus" name="focus" required>
-                <option value="" disabled selected hidden>Wähle ein Thema</option>
-                <option value="own">eigener</option>
-                <option value="packaging">Verpackungen</option>
-                <option value="meatconsumption">Fleischkonsum</option>
-                <option value="others">nochAndere</option>
-            </select>
+                <label for="focus">im Themenfokus:</label><br />
+                <select id="focus" name="focus" required>
+                    <option value="" disabled selected hidden>Wähle ein Thema</option>
+                    <option value="own">eigener</option>
+                    <option value="packaging">Verpackungen</option>
+                    <option value="meatconsumption">Fleischkonsum</option>
+                    <option value="others">nochAndere</option>
+                </select>
             </div>
-            <InfoIcon class="icon" aria-label="topic-information" width="48" height="48" />
+            <a href="/construction" class="info-link">
+                <InfoIcon class="icon" aria-label="topic-information" width="48" height="48"/>
+            </a>
+            <!--script type="module">
+                const infoLink = document.querySelector('.info-link');
+                if (infoLink) {
+                    infoLink.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        alert('Hier kannst Du mehr über die Themen erfahren.');
+                    });
+                }
+            </script -->
         </fieldset>
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
                 <label for="challenge">Überlege Dir die genaue Challenge:</label><br />
                 <div class="random-layout">
                     <!-- random options of challenges on button click -->
-                    <input
-                        type="text"
-                        id="random"
-                        name="random"
-                        placeholder="Random Challenge"
-                    />
+                    <textarea id="random" name="random" placeholder="Random Challenge"/>
                     <!-- random button to get a random challenge -->
                     <button
                         type="button"
@@ -48,7 +55,7 @@ const { popup } = Astro.props;
                         aria-label="random challenge"
                     >
                         <DiceIcon
-                            class="icon"
+                            class="icon-small"
                             aria-label="dice"
                             width="48"
                             height="48"
@@ -72,7 +79,7 @@ const { popup } = Astro.props;
                         }
                     </script>
                 </div>
-                <textarea id="challenge" name="challenge" placeholder="Ich..."></textarea><br />
+                <textarea id="challenge" name="challenge" placeholder="Ich..."/><br />
             </fieldset>
             <fieldset class="challenge-interval">
                 <label for="frequency">mit der Häufigkeit:</label><br />

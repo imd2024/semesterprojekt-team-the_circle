@@ -46,7 +46,6 @@ textarea {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 40%;
     max-height: auto;
 }
 
@@ -54,6 +53,14 @@ textarea {
     cursor: pointer;
     margin: 0.5rem;
     padding: 0;
+}
+
+.icon-small {
+    cursor: pointer;
+    margin: 0.5rem;
+    padding: 0;
+    width: 24px;
+    height: 24px;
 }
 
 /*tried to add stroke color changing effect on hover, failed
@@ -80,7 +87,7 @@ textarea {
 }
 
 .popup-header {
-    /* background-color: ; change for different popups... */
+    /* background-color and color change for different popups... */
     margin: 0;
     padding: 0;
     border-radius: 50px;
@@ -97,9 +104,11 @@ textarea {
 /* vordefinierte Farbklassen */
 .header--orange {
   background-color: rgba(250, 206, 112, 1);
+  color: black;
 }
 .header--purple {
   background-color: rgba(145, 71, 174, 1);
+  color: white;
 }
 
 .header-layout {
@@ -134,6 +143,14 @@ textarea {
 
 /* START CHALLENGE */
 
+/*.squirrel {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}*/
+
 .challenge-form {
     margin: 0;
     padding: 0;
@@ -149,21 +166,31 @@ textarea {
     background-color: rgba(194, 215, 208, 1);
     margin: 0;
     padding: 1rem 0.7rem 0.5rem 0.7rem;
-    width: 100%;
-    height: fit-content;
     border-radius: 25px;
     border-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
 }
 
-.challenge-form input, select, textarea, option {
+.challenge-form input, select, option {
     background-color: rgba(255, 255, 255, 0.66);
     border: none;
     border-radius: 27px;
     padding: 0 0.5rem;
     height: 24px;
+    /* correct font yet to import */
+    font-family: Inter, Robo, sans sans-serif thin;
+    font-size: 16px;
+}
+
+.challenge-form textarea {
+    background-color: rgba(255, 255, 255, 0.66);
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem;
+    min-height: 80px;
+    max-height: 200px;
+    height: auto;
+    overflow-y: auto;
+    resize: none;
     /* correct font yet to import */
     font-family: Inter, Robo, sans sans-serif thin;
     font-size: 16px;
@@ -183,38 +210,52 @@ textarea {
 .challenge-form input:not(:placeholder-shown),
 .challenge-form textarea:not(:placeholder-shown),
 .challenge-form input:valid,
-.challenge-form select:valid,
-.challenge-form textarea:valid {
+.challenge-form select:valid {
     background-color: rgba(255, 255, 255, 1);
 }
 
 .challenge-layout {
     margin: 0;
     padding: 0;
-    height: 50%;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 }
 
 .challenge-start-layout {
+    width: 100%;
+    height: 15%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
 }
 
 .challenge-focus {
     /* min max */
     height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
 }
 
 .challenge-detail {
     width: 66%;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
 }
 
 .challenge-interval {
-    width: 30%;
-    height: auto;
+    width: 33%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
 }
 
 .random-layout {
