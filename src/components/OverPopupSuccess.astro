@@ -1,9 +1,18 @@
 ---
-const {infotext} = Astro.props
-const {iconSrc} = Astro.props
+import OverPopup from "./OverPopup.astro"
+import "../css/overpopupstylesuccess.css"
 ---
 
-<div class="info-popup">
-    <img src={iconSrc} alt="Image of your choosen Icon">
-    <p>{infotext}</p>
+<OverPopup>
+<button class="button-next" onclick="removePopUp()">
+    <img src="next.svg" alt="button-close for next popup" />
+</button>
+<div class="icon-background">
+    <img src="#" alt="popup-icon" />
 </div>
+<h2>Super!</h2>
+<p>
+    Du hast Dir eine neue Challenge gesetzt! Nach dem ersten Interval erscheint
+    dein Eichhörnchen in Deinem Garten!
+</p>
+</OverPopup>
