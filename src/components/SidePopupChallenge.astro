@@ -4,7 +4,8 @@ import Popup from "./SidePopupMain.astro";
 import SquirrelIcon from "../assets/squirrel00.svg";
 import InfoIcon from "../assets/info00.svg";
 import DiceIcon from "../assets/dice00.svg";
-import CheckIcon from "../assets/check00.svg";
+import invalidSubmit from "../assets/check00.svg";
+import validSubmit from "../assets/check-green00.svg";
 const { popup } = Astro.props;
 ---
 
@@ -155,19 +156,24 @@ const { popup } = Astro.props;
                 >
             </div>
             <button type="submit" disabled id="challenge-submit" class="submit">
-                <CheckIcon
-                    aria-label="Submit"
-                    width="48"
-                    height="48"
-                />
+                <img id="submit-icon" src={invalidSubmit.src} aria-label={invalidSubmit.alt} class="submit-icon" width="48" height="48"/>
             </button>
             <script type="module">
                 const form = document.querySelector('.challenge-form');
                 const submit = document.getElementById('challenge-submit');
+                const submitIcon = document.getElementById('submit-icon');
                 const requiredFields = form.querySelectorAll('[required]');
 
                 function checkValidity() {
                     submit.disabled = !form.checkValidity();
+                    // Change icon based on validity
+                    if (form.checkValidity()) {
+                        submitIcon.src = "/src/assets/check-green00.svg"; // path relative to public or root
+                        submitIcon.alt = "Valid Submit";
+                    } else {
+                        submitIcon.src = "/src/assets/check00.svg";
+                        submitIcon.alt = "Invalid Submit";
+                    }
                 }
 
                 requiredFields.forEach(field => {
@@ -177,12 +183,6 @@ const { popup } = Astro.props;
 
                 // Initial check
                 checkValidity();
-
-                if (submit.disabled) {
-                    console.log('Submit button is disabled');
-                } else {
-                    console.log('Submit button is enabled');
-                }
             </script>
         </div>
     </form>
