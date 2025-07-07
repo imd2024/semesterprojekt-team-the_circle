@@ -4,7 +4,8 @@ import Popup from "./SidePopupMain.astro";
 import SquirrelIcon from "../assets/squirrel00.svg";
 import InfoIcon from "../assets/info00.svg";
 import DiceIcon from "../assets/dice00.svg";
-import CheckIcon from "../assets/check00.svg";
+import invalidSubmit from "../assets/check00.svg";
+import validSubmit from "../assets/check-green00.svg";
 const { popup } = Astro.props;
 ---
 
@@ -12,34 +13,41 @@ const { popup } = Astro.props;
 <Popup
     variant="orange"
     iconSrc={SquirrelIcon}
+    class="squirrel"
     title="Neue Challenge"
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
 >
     <form class="challenge-form">
         <fieldset class="challenge-start-layout">
             <div class="challenge-focus">
-            <label for="focus">im Themenfokus:</label><br />
-            <select id="focus" name="focus" required>
-                <option value="" disabled selected hidden>Wähle ein Thema</option>
-                <option value="own">eigener</option>
-                <option value="packaging">Verpackungen</option>
-                <option value="meatconsumption">Fleischkonsum</option>
-                <option value="others">nochAndere</option>
-            </select>
+                <label for="focus">im Themenfokus:</label><br />
+                <select id="focus" name="focus" required>
+                    <option value="" disabled selected hidden>Wähle ein Thema</option>
+                    <option value="own">eigener</option>
+                    <option value="packaging">Verpackungen</option>
+                    <option value="meatconsumption">Fleischkonsum</option>
+                    <option value="others">nochAndere</option>
+                </select>
             </div>
-            <InfoIcon class="icon" aria-label="topic-information" width="48" height="48" />
+            <a href="/construction" class="info-link">
+                <InfoIcon class="icon" aria-label="topic-information" width="48" height="48"/>
+            </a>
+            <!--script type="module">
+                const infoLink = document.querySelector('.info-link');
+                if (infoLink) {
+                    infoLink.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        alert('Hier kannst Du mehr über die Themen erfahren.');
+                    });
+                }
+            </script -->
         </fieldset>
         <div class="challenge-layout">
             <fieldset class="challenge-detail">
                 <label for="challenge">Überlege Dir die genaue Challenge:</label><br />
                 <div class="random-layout">
                     <!-- random options of challenges on button click -->
-                    <input
-                        type="text"
-                        id="random"
-                        name="random"
-                        placeholder="Random Challenge"
-                    />
+                    <textarea id="random" class="random-text" name="random" placeholder="Random Challenge"/>
                     <!-- random button to get a random challenge -->
                     <button
                         type="button"
@@ -48,12 +56,44 @@ const { popup } = Astro.props;
                         aria-label="random challenge"
                     >
                         <DiceIcon
-                            class="icon"
+                            id="dice-icon"
+                            class="icon-small"
                             aria-label="dice"
-                            width="48"
-                            height="48"
                         />
-                    </button>                    
+                    </button>
+                    <style>
+                        @keyframes diceAnim {
+	                        0%,
+	                        100% {
+		                        transform: rotate(0deg);
+		                        transform-origin: 50% 50%;
+	                        }
+
+	                        10% {
+	                        	transform: rotate(8deg);
+	                        }
+
+	                        20%,
+	                        40%,
+	                        60% {
+		                        transform: rotate(-10deg);
+	                        }
+
+	                        30%,
+	                        50%,
+	                        70% {
+	                        	transform: rotate(10deg);
+	                        }
+
+	                        80% {
+	                        	transform: rotate(-8deg);
+	                        }
+
+	                        90% {
+	                        	transform: rotate(8deg);
+	                        }
+                        }
+                    </style>                  
                     <script type="module">
                         const randomChallenges = [
                             "Ich werde jeden Tag 10 Minuten spazieren gehen.",
@@ -68,17 +108,26 @@ const { popup } = Astro.props;
                             randomBtn.addEventListener('click', () => {
                                 const randomIndex = Math.floor(Math.random() * randomChallenges.length);
                                 randomChallenge.value = randomChallenges[randomIndex];
+                                // Trigger the dice animation
+                                const diceIcon = document.getElementById('dice-icon');
+                                if (diceIcon) {
+                                    diceIcon.style.animation = 'diceAnim 0.7s ease-in 0s 1 normal none';
+                                    setTimeout(() => {
+                                        diceIcon.style.animation = '';
+                                    }, 500); // Reset animation after it completes
+                                }
                             });
                         }
                     </script>
                 </div>
-                <textarea id="challenge" name="challenge" placeholder="Ich..."></textarea><br />
+                <textarea id="challenge" class="challenge-text" name="challenge" placeholder="Ich..."/><br />
             </fieldset>
             <fieldset class="challenge-interval">
                 <label for="frequency">mit der Häufigkeit:</label><br />
                 <input
                     type="number"
                     id="frequency"
+                    class="frequency-input"
                     name="frequency"
                     placeholder="Anzahl"
                     min="1"
@@ -107,19 +156,24 @@ const { popup } = Astro.props;
                 >
             </div>
             <button type="submit" disabled id="challenge-submit" class="submit">
-                <CheckIcon
-                    aria-label="Submit"
-                    width="48"
-                    height="48"
-                />
+                <img id="submit-icon" src={invalidSubmit.src} aria-label={invalidSubmit.alt} class="submit-icon" width="48" height="48"/>
             </button>
             <script type="module">
                 const form = document.querySelector('.challenge-form');
                 const submit = document.getElementById('challenge-submit');
+                const submitIcon = document.getElementById('submit-icon');
                 const requiredFields = form.querySelectorAll('[required]');
 
                 function checkValidity() {
                     submit.disabled = !form.checkValidity();
+                    // Change icon based on validity
+                    if (form.checkValidity()) {
+                        submitIcon.src = "/src/assets/check-green00.svg"; // path relative to public or root
+                        submitIcon.alt = "Valid Submit";
+                    } else {
+                        submitIcon.src = "/src/assets/check00.svg";
+                        submitIcon.alt = "Invalid Submit";
+                    }
                 }
 
                 requiredFields.forEach(field => {
@@ -129,25 +183,6 @@ const { popup } = Astro.props;
 
                 // Initial check
                 checkValidity();
-
-                if (submit.disabled) {
-                    console.log('Submit button is disabled');
-                //how do we let the user know that the form is not valid?
-                } else {
-                    console.log('Submit button is enabled');
-                }
-
-                // Add event listener for random button
-                const randomButton = document.getElementById('random-button');
-                if (randomButton) {
-                    randomButton.addEventListener('click', () => {
-                        const challengeInput = document.getElementById('challenge');
-                        if (challengeInput) {
-                            challengeInput.value = 'Ich werde jeden Tag 10 Minuten spazieren gehen.';
-                        }
-                    });
-                }
-            </script>
             </script>
         </div>
     </form>
