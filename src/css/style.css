@@ -44,7 +44,7 @@ body {
   
   .nav-label {
     position: absolute;
-    top: 6rem;
+    top: 5.5rem;
     left: 50%;
     transform: translateX(-50%);
     background-color: #397A62;
