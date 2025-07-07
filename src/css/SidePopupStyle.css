@@ -186,9 +186,6 @@ textarea {
     border: none;
     border-radius: 20px;
     padding: 0.5rem;
-    min-height: 80px;
-    max-height: 200px;
-    height: auto;
     overflow-y: auto;
     resize: none;
     /* correct font yet to import */
@@ -196,12 +193,23 @@ textarea {
     font-size: 16px;
 }
 
+.challenge-text {
+    min-height: 120px;
+    max-height: 200px;
+    height: auto;
+}
+
+.random-text {
+    height: 80px;
+}
+
 .challenge-form input:hover, select:hover, textarea:hover, option:hover {
     background-color: rgba(255, 255, 255, 1);
     transition: background-color 0.3s ease;
 }
 
-.challenge-form input:focus, select:focus, textarea:focus {
+.frequency-input:focus,
+.challenge-form select:focus, textarea:focus {
     background-color: rgba(255, 255, 255, 1);
     outline: black solid 1px;
     transition: outline 0.3s ease;
@@ -294,14 +302,14 @@ textarea {
     border: none;
     padding: 0;
     margin: 0.5rem;
-    cursor: default; /* tried to set default cursor for all states, failed */
+    cursor: default;
 }
 .submit:enabled {
     cursor: pointer;
 }
 .submit:disabled {
     stroke-opacity: calc(1 - var(--opacity));
-    cursor: default; /* tried to ensure default cursor when disabled, failed */
+    cursor: default;
 }
 
 /* END CHALLENGE */
