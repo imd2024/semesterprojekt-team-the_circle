@@ -1,8 +1,8 @@
 .Notify-popup {
     position: absolute;
-    bottom: 33rem;
-    left: 59rem;
-    width: 20rem;
+    top: 9.5vh;
+    left: 58vw;
+    width: 30vw;
     background-color: #5b42a6; 
     color: white;
     padding: 2rem;
