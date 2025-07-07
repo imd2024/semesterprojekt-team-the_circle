@@ -180,22 +180,9 @@ const { popup } = Astro.props;
 
                 if (submit.disabled) {
                     console.log('Submit button is disabled');
-                //how do we let the user know that the form is not valid?
                 } else {
                     console.log('Submit button is enabled');
                 }
-
-                // Add event listener for random button
-                const randomButton = document.getElementById('random-button');
-                if (randomButton) {
-                    randomButton.addEventListener('click', () => {
-                        const challengeInput = document.getElementById('challenge');
-                        if (challengeInput) {
-                            challengeInput.value = 'Ich werde jeden Tag 10 Minuten spazieren gehen.';
-                        }
-                    });
-                }
-            </script>
             </script>
         </div>
     </form>
