@@ -1,18 +1,20 @@
 ---
-import OverPopup from "./OverPopup.astro"
+import OverPopupMain from "./OverPopupMain.astro"
 import "../css/overpopupstylesuccess.css"
+import Squirrel from "../assets/squirrel00.svg"
 ---
 
-<OverPopup>
+<OverPopupMain>
 <button class="button-next" onclick="removePopUp()">
-    <img src="next.svg" alt="button-close for next popup" />
+    <img src="/src/assets/next00.svg" alt="button-close for next popup" />
 </button>
 <div class="icon-background">
-    <img src="#" alt="popup-icon" />
+    <Squirrel ></Squirrel>
+    <!-- fehlt noch: alt="popup-icon" -->
 </div>
 <h2>Super!</h2>
 <p>
     Du hast Dir eine neue Challenge gesetzt! Nach dem ersten Interval erscheint
     dein Eichhörnchen in Deinem Garten!
 </p>
-</OverPopup>
+</OverPopupMain>

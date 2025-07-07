@@ -1,12 +1,13 @@
 ---
 import "../css/overpopupstyle.css"
+const { id } = Astro.props;
 ---
 
-<div id="popup-success" class="flexbox">
+<div id={id} class="flexbox">
     <div class="triangle"></div>
     <div class="rectangle">
-        <main>
             <slot />
-        </main>
     </div>
 </div>
+
+<!-- Kann ich slot auch ohne main verwenden? -->
