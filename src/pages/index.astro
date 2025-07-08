@@ -197,12 +197,9 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
                     btn.classList.remove("hidden");
                     btn.className = "big-button left-button";
                 }
-                // Show the success popup
-                const successPopup = document.getElementById("success-popup-id");
-                if (successPopup) {
-                    successPopup.classList.remove("hidden");
-                    successPopup.className = "flexbox";
-                }
+                // Start the success toggle
+                successToggle();
+                
             });
         }
     });
