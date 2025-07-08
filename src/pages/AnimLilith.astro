@@ -1,0 +1,94 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DiceIcon from "../assets/dice00.svg";
+---
+
+
+<Layout title="Greentopia - Home">
+    <div class="animation-flexbox">
+        <button
+            type="button"
+            class="random-button"
+            id="random-button"
+            aria-label="random challenge"
+        >
+            <DiceIcon
+                id="dice-icon"
+                class="icon"
+                aria-label="dice"
+                width="48"
+                height="48"
+            />
+        </button>
+    </div>
+</Layout>
+
+                    
+<script>
+	// Trigger the animation on click
+	const randomBtn = document.getElementById('random-button');
+	if (randomBtn) {
+		randomBtn.addEventListener('click', () => {
+			const diceIcon = document.getElementById('dice-icon');
+			if (diceIcon) {
+				diceIcon.style.animation = 'diceAnim 0.7s ease-in 0s 1 normal none';
+				setTimeout(() => {
+					diceIcon.style.animation = '';
+				}, 500); // Reset animation after it completes
+			}
+		});
+	}
+</script>
+
+<style>
+	.animation-flexbox {
+		background-color: black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh; /* Full viewport height */
+	}
+
+	.random-button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
+
+	.icon {
+		width: 72px;
+		height: 72px;
+	}
+
+	@keyframes diceAnim {
+	    0%,
+	    100% {
+		    transform: rotate(0deg);
+		    transform-origin: 50% 50%;
+	    }
+
+	    10% {
+	    	transform: rotate(8deg);
+	    }
+
+	    20%,
+	    40%,
+	    60% {
+		    transform: rotate(-10deg);
+	    }
+
+	    30%,
+	    50%,
+	    70% {
+	    	transform: rotate(10deg);
+	    }
+
+	    80% {
+	    	transform: rotate(-8deg);
+	    }
+
+	    90% {
+	    	transform: rotate(8deg);
+	    }
+	}
+</style>
