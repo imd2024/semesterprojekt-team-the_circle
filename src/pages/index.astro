@@ -12,14 +12,14 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
 
 <Layout title="Greentopia - Home">
     <div class="flexbox-content">
-        <Challenge/>
-        <Reward/>
+        <Challenge />
+        <Reward />
         <Garden backgroundId="garden-id" />
         <!-- <button class="big-button left-button" id="btn"></button>
         Demo-Button um zu schauen ob Garten umschalten geht -->
-        <Profil/>
-        <SuccessButton id="btn"/>
-        <ProfilButton id="p-btn"/>
+        <Profil />
+        <SuccessButton id="btn" />
+        <ProfilButton id="p-btn" />
     </div>
     <OverPopupSuccess id="success-popup-id" buttonId="next-button-id" />
     <OverPopUpNotification />
@@ -30,22 +30,9 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
     const btn = document.getElementById("btn");
     const successPopup = document.getElementById("success-popup-id");
     const nextButton = document.getElementById("next-button-id");
-    // const notificationPopup = document.getElementById("notification-popup-id");
+    const notificationPopup = document.querySelector(".Notify-popup");
 
-    document.addEventListener("DOMContentLoaded", function () {
-        if (!nextButton) {
-            return;
-        }
-        if (!successPopup) {
-            return;
-        }
-
-        nextButton.addEventListener("click", function () {
-            successPopup.classList.add("hidden");
-            // notificationPopup.classList.remove("hidden");
-        });
-    });
-
+    //  Funktion um den Garten groß/klein schalten zu können
     function gardenToggle() {
         if (!garden) {
             return;
@@ -56,13 +43,16 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
             garden.classList.remove("garden-background");
             return;
         }
-                    
+
         if (garden.classList.contains("garden-background-small")) {
             garden.classList.remove("garden-background-small");
             garden.classList.add("garden-background");
         }
     }
-    
+    // Funktion Garden umschalten Ende
+
+    // Anwenden der Funktion Garden bei Click auf button
+
     document.addEventListener("DOMContentLoaded", function () {
         if (!btn) {
             return;
@@ -73,66 +63,96 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
         });
     });
 
+    // Anwenden der Funktion bei Click auf Button Ende
 
-document.addEventListener("DOMContentLoaded", function() {
-    // when the button is clicked -> show the corresponding popup and hide the button
-    // also hide the other popup if it is visible
-    const btn = document.getElementById("btn");
-    const profilbtn = document.getElementById("p-btn");
-    const reward = document.getElementById("reward-popup");
-    const profil = document.getElementById("profil-popup");
+    //Funktion um Visibility Success PopUp umzuschalten
 
-    if (btn && reward) {
-        btn.addEventListener("click", function () {
-            // Show the reward popup and hide the button
-            btn.classList.add("hidden");
-            reward.classList.remove("hidden");
-            reward.classList.add("visible");
-            // Hide the profil popup
-            if (profil && profil.classList.contains("visible")) {
-                console.log('Closing ProfilPopup');
-                profil.classList.remove("visible");
-                profil.classList.add("hidden");
-                // Show the button again
-                if (profilbtn) {
-                    profilbtn.classList.remove("hidden");
-                    profilbtn.className = "big-button right-button";
-                }
-            }
-        });
-    }
-    
-    if (profilbtn && profil) {
-        profilbtn.addEventListener("click", function () {
-            // Show the profil popup and hide the profil button
-            profilbtn.classList.add("hidden");
-            profil.classList.remove("hidden");
-            profil.classList.add("visible");
-            // Hide the reward popup
-            if (reward && reward.classList.contains("visible")) {
-                console.log('Closing RewardPopup');
-                reward.classList.remove("visible");
-                reward.classList.add("hidden");
-                // Show the button again
-                if (btn) {
-                    btn.classList.remove("hidden");
-                    btn.className = "big-button left-button";
-                }
-            }
-        });
+    function successToggle() {
+        if (!successPopup) {
+            return;
+        }
+        if (successPopup.classList.contains("hidden")) {
+            successPopup.classList.remove("hidden");
+            successPopup.classList.add("animation-visible");
+        }
     }
 
-    // when the header icon is clicked -> close the currently visible popup
-    const challenge = document.getElementById("challenge-popup");
-    const headerIcon = document.querySelectorAll("#header-icon");
-            for (const icon of headerIcon) {
-                icon.addEventListener("click", handleHeaderIconClick);
-            }
+    //Funktion um Visibility Success PopUp umzuschalten Ende
 
-    function handleHeaderIconClick() {
+    // Funktion um bei Click auf Button im Success PopUP dieses zu verbergen und Notification PopUp anzuzeigen (Umschalten eins sichtbar, adneres unsichtbar)
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!(nextButton && successPopup && notificationPopup)) {
+            return;
+        }
+       
+        nextButton.addEventListener("click", function () {
+            successPopup.classList.add("hidden");
+            notificationPopup.classList.remove("hidden");
+        });
+    });
+
+    // Funktion Umschalten der Visibility Success PopUp und Notification PopUp
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // when the button is clicked -> show the corresponding popup and hide the button
+        // also hide the other popup if it is visible
+        const btn = document.getElementById("btn");
+        const profilbtn = document.getElementById("p-btn");
+        const reward = document.getElementById("reward-popup");
+        const profil = document.getElementById("profil-popup");
+
+        if (btn && reward) {
+            btn.addEventListener("click", function () {
+                // Show the reward popup and hide the button
+                btn.classList.add("hidden");
+                reward.classList.remove("hidden");
+                reward.classList.add("visible");
+                // Hide the profil popup
+                if (profil && profil.classList.contains("visible")) {
+                    console.log("Closing ProfilPopup");
+                    profil.classList.remove("visible");
+                    profil.classList.add("hidden");
+                    // Show the button again
+                    if (profilbtn) {
+                        profilbtn.classList.remove("hidden");
+                        profilbtn.className = "big-button right-button";
+                    }
+                }
+            });
+        }
+
+        if (profilbtn && profil) {
+            profilbtn.addEventListener("click", function () {
+                // Show the profil popup and hide the profil button
+                profilbtn.classList.add("hidden");
+                profil.classList.remove("hidden");
+                profil.classList.add("visible");
+                // Hide the reward popup
+                if (reward && reward.classList.contains("visible")) {
+                    console.log("Closing RewardPopup");
+                    reward.classList.remove("visible");
+                    reward.classList.add("hidden");
+                    // Show the button again
+                    if (btn) {
+                        btn.classList.remove("hidden");
+                        btn.className = "big-button left-button";
+                    }
+                }
+            });
+        }
+
+        // when the header icon is clicked -> close the currently visible popup
+        const challenge = document.getElementById("challenge-popup");
+        const headerIcon = document.querySelectorAll("#header-icon");
+        for (const icon of headerIcon) {
+            icon.addEventListener("click", handleHeaderIconClick);
+        }
+
+        function handleHeaderIconClick() {
             // Reward Popup
             if (reward && reward.classList.contains("visible")) {
-                console.log('Closing RewardPopup');
+                console.log("Closing RewardPopup");
                 reward.classList.remove("visible");
                 reward.classList.add("hidden");
                 // Show the button again
@@ -143,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             // Challenge Popup
             if (challenge && challenge.classList.contains("visible")) {
-                console.log('Closing ChallengePopup');
+                console.log("Closing ChallengePopup");
                 challenge.classList.remove("visible");
                 challenge.classList.add("hidden");
                 //+ show Reward Popup
@@ -154,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             // Profil Popup
             if (profil && profil.classList.contains("visible")) {
-                console.log('Closing ProfilPopup');
+                console.log("Closing ProfilPopup");
                 profil.classList.remove("visible");
                 profil.classList.add("hidden");
                 // Show the button again
@@ -163,13 +183,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     profilbtn.className = "big-button right-button";
                 }
             }
-    }
+        }
 
-    // Close the challenge popup when the submit icon is clicked
-    const submitIcon = document.getElementById("challenge-submit");
+        // Close the challenge popup when the submit icon is clicked
+        const submitIcon = document.getElementById("challenge-submit");
 
-    if (submitIcon && challenge) {
-            submitIcon.addEventListener("click", function ()  {
+        if (submitIcon && challenge) {
+            submitIcon.addEventListener("click", function () {
                 challenge.classList.remove("visible");
                 challenge.classList.add("hidden");
                 // Show the button again
@@ -181,14 +201,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-// Notification Popup close
+    // Notification Popup close
     document.addEventListener("DOMContentLoaded", () => {
-  const closeBtn = document.querySelector(".popup-close");
-  const popup = document.querySelector(".Notify-popup");
+        const closeBtn = document.querySelector(".popup-close");
+        const popup = document.querySelector(".Notify-popup");
 
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-});
-
+        closeBtn.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
+    });
 </script>
