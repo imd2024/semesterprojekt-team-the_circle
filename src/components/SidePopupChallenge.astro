@@ -17,6 +17,7 @@ const { popup } = Astro.props;
     title="Neue Challenge"
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
 >
+    <div class="reward-content">
     <form class="challenge-form">
         <fieldset class="challenge-start-layout">
             <div class="challenge-focus">
@@ -30,7 +31,7 @@ const { popup } = Astro.props;
                 </select>
             </div>
             <a href="/construction" class="info-link">
-                <InfoIcon class="icon" aria-label="topic-information" width="48" height="48"/>
+                <InfoIcon class="icon-form" aria-label="topic-information" width="48" height="48"/>
             </a>
             <!--script type="module">
                 const infoLink = document.querySelector('.info-link');
@@ -156,7 +157,7 @@ const { popup } = Astro.props;
                 >
             </div>
             <button type="submit" disabled id="challenge-submit" class="submit">
-                <img id="submit-icon" src={invalidSubmit.src} aria-label={invalidSubmit.alt} class="submit-icon" width="48" height="48"/>
+                <img id="submit-icon" src={invalidSubmit.src} aria-label={invalidSubmit.alt} class="icon-form" width="48" height="48"/>
             </button>
             <script type="module">
                 const form = document.querySelector('.challenge-form');
@@ -186,5 +187,6 @@ const { popup } = Astro.props;
             </script>
         </div>
     </form>
+    </div>
 </Popup>
 </div>
