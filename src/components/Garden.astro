@@ -6,23 +6,6 @@ const { backgroundId } = Astro.props;
 ---
 
 <div id={backgroundId} class="garden-background">
-    <!-- <script is:inline>
-    function garden() {
-        const garden = document.currentScript?.parentElement;
-        if (!garden) {
-            return;
-        }
-
-        garden.addEventListener("toggle", function () {
-            if (garden.className === "garden-background") {
-                garden.className = "garden-background-small";
-                return;
-            }
-            garden.className = "garden-background";
-        });
-    }
-    garden()
-</script> -->
     <div class="garden">
         <Tree class="tree" />
         <Plant class="plant mid-plant" />

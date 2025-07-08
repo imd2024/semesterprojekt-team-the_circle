@@ -64,14 +64,13 @@ body {
 
 .flexbox-content {
     display: flex;
-    /* justify-content: center; */
     flex-direction: row;
     /* margin: 5.5% 9.2%; */
     padding: 7.8vh 5.5vw;
     position: relative;
     height: 100%;
     box-sizing: border-box;
-    /* justify-items: stretch; */
+    justify-content: space-between;
 }
 
 
@@ -128,4 +127,13 @@ body {
   width: 100%;
   height: auto;
 
+}
+
+/* tablet */
+@media (max-width: 979px) {
+  .flexbox-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
 }

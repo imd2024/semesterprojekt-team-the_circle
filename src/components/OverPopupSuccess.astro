@@ -1,20 +1,26 @@
 ---
-import OverPopupMain from "./OverPopupMain.astro"
-import "../css/overpopupstylesuccess.css"
-import Squirrel from "../assets/squirrel00.svg"
+import OverPopupMain from "./OverPopupMain.astro";
+import "../css/overpopupstylesuccess.css";
+import Squirrel from "../assets/squirrel00.svg";
+const { id, buttonId } = Astro.props;
 ---
 
-<OverPopupMain>
-<button class="button-next" onclick="removePopUp()">
-    <img src="/src/assets/next00.svg" alt="button-close for next popup" />
-</button>
-<div class="icon-background">
-    <Squirrel ></Squirrel>
-    <!-- fehlt noch: alt="popup-icon" -->
-</div>
-<h2>Super!</h2>
-<p>
-    Du hast Dir eine neue Challenge gesetzt! Nach dem ersten Interval erscheint
-    dein Eichhörnchen in Deinem Garten!
-</p>
+<OverPopupMain id={id}>
+    <div class="success-content">
+        <button id={buttonId} class="button-next">
+            <img
+                src="/src/assets/next00.svg"
+                alt="button-close for next popup"
+            />
+        </button>
+        <div class="icon-background">
+            <Squirrel />
+            <!-- fehlt noch: alt="popup-icon" -->
+        </div>
+        <h2>Super!</h2>
+        <p>
+            Du hast Dir eine neue Challenge gesetzt! Nach dem ersten Interval
+            erscheint dein Eichhörnchen in Deinem Garten!
+        </p>
+    </div>
 </OverPopupMain>
