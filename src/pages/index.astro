@@ -41,7 +41,7 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
         }
 
         nextButton.addEventListener("click", function () {
-            successPopup.classList.add("hidden");
+            //successPopup.classList.add("hidden");
             // notificationPopup.classList.remove("hidden");
         });
     });
@@ -176,6 +176,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (btn && btn.classList.contains("hidden")) {
                     btn.classList.remove("hidden");
                     btn.className = "big-button left-button";
+                }
+                // Show the success popup
+                const successPopup = document.getElementById("success-popup-id");
+                if (successPopup) {
+                    successPopup.classList.remove("hidden");
+                    successPopup.className = "flexbox";
                 }
             });
         }
