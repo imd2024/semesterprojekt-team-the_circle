@@ -161,5 +161,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 });
+// Notification Popup close
+    document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.querySelector(".popup-close");
+  const popup = document.querySelector(".Notify-popup");
+
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+});
 
 </script>
