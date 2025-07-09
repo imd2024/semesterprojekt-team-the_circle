@@ -28,7 +28,5 @@
 }
 
 .info-content p {
-font-size: 1rem;
-/* kann gelöscht werden, wenn p nicht in Komponente SidePopUpStyle überschrieben wird für alle Elemtente */
 padding: 0.5rem;
 }

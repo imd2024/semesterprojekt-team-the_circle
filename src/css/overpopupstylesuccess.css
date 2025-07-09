@@ -17,11 +17,6 @@
     align-items: center;
 }
 
-.success-content p {
-    font-size: 1rem;
-    /* kann gelöscht werden, wenn p nicht in Komponente SidePopUpStyle überschrieben wird für alle Elemtente */
-}
-
 .button-next {
     position: absolute;
     right: 5%;
@@ -79,3 +74,5 @@
         0%   { transform: scale(1, 0) }
         100%  { transform: scale(1,1) }  
     }
+
+    /* Animation beim Erscheinen des Popups Ende */
