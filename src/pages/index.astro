@@ -8,31 +8,39 @@ import Reward from "../components/SidePopupReward.astro";
 import Profil from "../components/SidePopupProfil.astro";
 import OverPopUpNotification from "../components/OverPopUpNotification.astro";
 import OverPopupSuccess from "../components/OverPopupSuccess.astro";
+import OverPopupInfo from "../components/OverPopupInfo.astro";
 ---
 
 <Layout title="Greentopia - Home">
     <div class="flexbox-content">
-        <Challenge />
-        <Reward />
+        <Challenge helpButtonId="challenge-help-button" />
+        <Reward helpButtonId="reward-help-button" />
         <Garden backgroundId="garden-id" />
         <!-- <button class="big-button left-button" id="btn"></button>
         Demo-Button um zu schauen ob Garten umschalten geht -->
-        <Profil />
+        <Profil helpButtonId="profil-help-button"/>
         <SuccessButton id="btn" />
         <ProfilButton id="p-btn" />
     </div>
     <OverPopupSuccess id="success-popup-id" buttonId="next-button-id" />
     <OverPopUpNotification />
+    <OverPopupInfo id="info-popup" buttonId="popup-info-close"/>
 </Layout>
 
 <script>
+    // Erst alles suchen
     const garden = document.getElementById("garden-id");
     const btn = document.getElementById("btn");
     const successPopup = document.getElementById("success-popup-id");
     const nextButton = document.getElementById("next-button-id");
     const notificationPopup = document.querySelector(".Notify-popup");
+    const closeInfo = document.getElementById("popup-info-close");
+    const infoPopup = document.getElementById("info-popup");
+    const challengeInfoButton = document.getElementById("challenge-help-button");
+    const rewardInfoButton = document.getElementById("reward-help-button");
+    const profilInfoButton = document.getElementById("profil-help-button");
 
-    //  Funktion um den Garten groß/klein schalten zu können
+    // Funktion um den Garten groß/klein schalten zu können
     function gardenToggle() {
         if (!garden) {
             return;
@@ -51,19 +59,17 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
     }
     // Funktion Garden umschalten Ende
 
-    // Anwenden der Funktion Garden bei Click auf button
-
-    document.addEventListener("DOMContentLoaded", function () {
-        if (!btn) {
+    
+    //  Funktion um das Infopopup zu schließen
+    function closeInfoPopup() {
+        if (!infoPopup) {
             return;
         }
-
-        btn.addEventListener("click", function () {
-            gardenToggle();
-        });
-    });
-
-    // Anwenden der Funktion bei Click auf Button Ende
+        if (!infoPopup.classList.contains("hidden")) {
+            infoPopup.classList.add("hidden");
+        }
+    }
+    // Funktion Infopopup schließen Ende
 
     //Funktion um Visibility Success PopUp umzuschalten
 
@@ -78,6 +84,44 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
     }
 
     //Funktion um Visibility Success PopUp umzuschalten Ende
+    
+    //Funktion um Visibility Info PopUp umzuschalten
+
+    function infoToggle() {
+        if (!infoPopup) {
+            return;
+        }
+        if (infoPopup.classList.contains("hidden")) {
+            infoPopup.classList.remove("hidden");
+            return;
+        }
+        infoPopup.classList.add("hidden");
+    }
+
+    //Funktion um Visibility Success PopUp umzuschalten Ende
+
+    // Anwenden der Funktion Garden bei Click auf button
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!(btn && closeInfo && challengeInfoButton && rewardInfoButton && profilInfoButton)) {
+            return;
+        }
+        btn.addEventListener("click", function () {
+            gardenToggle();
+        });
+        closeInfo.addEventListener("click", function () {
+            closeInfoPopup();
+        });
+        challengeInfoButton.addEventListener("click", function () {
+            infoToggle();
+        });
+        rewardInfoButton.addEventListener("click", function () {
+            infoToggle();
+        });
+    });
+
+    // Anwenden der Funktion bei Click auf Button Ende
+
 
     // Funktion um bei Click auf Button im Success PopUP dieses zu verbergen und Notification PopUp anzuzeigen (Umschalten eins sichtbar, adneres unsichtbar)
 
@@ -124,6 +168,7 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
 
         if (profilbtn && profil) {
             profilbtn.addEventListener("click", function () {
+                gardenToggle();
                 // Show the profil popup and hide the profil button
                 profilbtn.classList.add("hidden");
                 profil.classList.remove("hidden");
@@ -152,6 +197,7 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
         function handleHeaderIconClick() {
             // Reward Popup
             if (reward && reward.classList.contains("visible")) {
+                gardenToggle();
                 console.log("Closing RewardPopup");
                 reward.classList.remove("visible");
                 reward.classList.add("hidden");
@@ -174,6 +220,7 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
             }
             // Profil Popup
             if (profil && profil.classList.contains("visible")) {
+                gardenToggle();
                 console.log("Closing ProfilPopup");
                 profil.classList.remove("visible");
                 profil.classList.add("hidden");
@@ -199,14 +246,14 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
                 }
                 // Start the success toggle
                 successToggle();
-                
+                gardenToggle();                
             });
         }
     });
 
-    // Notification Popup close
+    //Notification Popup close
     document.addEventListener("DOMContentLoaded", () => {
-        const closeBtn = document.querySelector(".popup-close");
+       const closeBtn = document.querySelector(".popup-close");
         const popup = document.querySelector(".Notify-popup");
 
         closeBtn.addEventListener("click", () => {
