@@ -1,3 +1,4 @@
+/* Allgemein Seitenlayout Start */
 html,
 body {
   margin: 0;
@@ -13,6 +14,25 @@ body {
   grid-template-rows: auto 1fr;
 }
 
+/* Class um auszublenden */
+.hidden{
+    display: none;
+}
+/* class um auszublenden ende */
+
+.flexbox-content {
+    display: flex;
+    flex-direction: row;
+    /* margin: 5.5% 9.2%; */
+    padding: 7.8vh 5.5vw;
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: end;
+}
+
+/* Navbar Start */
 .navbar {
   background-color: #397A62;
   height: 7.5vh;
@@ -62,23 +82,15 @@ body {
     opacity: 1;
   }
 
-.flexbox-content {
-    display: flex;
-    flex-direction: row;
-    /* margin: 5.5% 9.2%; */
-    padding: 7.8vh 5.5vw;
-    position: relative;
-    height: 100%;
-    box-sizing: border-box;
-    justify-content: space-between;
-    align-items: end;
-}
+  /* Navbar Ende */
 
-
+/* Allgemein Seitenlayout Ende */
 
 .trees-icon a {
   text-decoration: none;
 }
+
+/* Button unten Styling Start */
 
 .big-button {
   position: fixed;
@@ -121,6 +133,9 @@ body {
   width: 5vw;
   height: 7vh;
 }
+
+/* Button unten Styling Ende */
+
 .construction {
   position: absolute;
   top: 50%;
@@ -130,7 +145,7 @@ body {
 
 }
 
-/* tablet */
+/* tablet Start*/
 @media (max-width: 979px) {
   .flexbox-content {
     flex-direction: column;
@@ -138,3 +153,4 @@ body {
     justify-content: space-around;
   }
 }
+/* tablet Ende */

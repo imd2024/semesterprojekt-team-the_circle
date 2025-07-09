@@ -6,10 +6,6 @@
     position: absolute;
 }
 
-.hidden {
-    display: none;
-}
-
 .flexbox .triangle {
     width: 0px;
     height: 0px;

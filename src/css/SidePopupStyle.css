@@ -410,10 +410,6 @@ input-active rgba(255, 255, 255, 1)
 
 /* END PROFIL */
 
-.hidden{
-    display: none;
-}
-
 .visible {
     display: flex;
     height: fit-content;
