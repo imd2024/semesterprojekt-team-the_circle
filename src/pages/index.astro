@@ -18,13 +18,13 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
         <Garden backgroundId="garden-id" />
         <!-- <button class="big-button left-button" id="btn"></button>
         Demo-Button um zu schauen ob Garten umschalten geht -->
-        <Profil helpButtonId="profil-help-button"/>
+        <Profil helpButtonId="profil-help-button" />
         <SuccessButton id="btn" />
         <ProfilButton id="p-btn" />
     </div>
     <OverPopupSuccess id="success-popup-id" buttonId="next-button-id" />
     <OverPopUpNotification />
-    <OverPopupInfo id="info-popup" buttonId="popup-info-close"/>
+    <OverPopupInfo id="info-popup" buttonId="popup-info-close" />
 </Layout>
 
 <script>
@@ -36,7 +36,9 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
     const notificationPopup = document.querySelector(".Notify-popup");
     const closeInfo = document.getElementById("popup-info-close");
     const infoPopup = document.getElementById("info-popup");
-    const challengeInfoButton = document.getElementById("challenge-help-button");
+    const challengeInfoButton = document.getElementById(
+        "challenge-help-button",
+    );
     const rewardInfoButton = document.getElementById("reward-help-button");
     const profilInfoButton = document.getElementById("profil-help-button");
 
@@ -59,7 +61,6 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
     }
     // Funktion Garden umschalten Ende
 
-    
     //  Funktion um das Infopopup zu schließen
     function closeInfoPopup() {
         if (!infoPopup) {
@@ -84,7 +85,7 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
     }
 
     //Funktion um Visibility Success PopUp umzuschalten Ende
-    
+
     //Funktion um Visibility Info PopUp umzuschalten
 
     function infoToggle() {
@@ -103,9 +104,21 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
     // Anwenden der Funktion Garden bei Click auf button
 
     document.addEventListener("DOMContentLoaded", function () {
-        if (!(btn && closeInfo && challengeInfoButton && rewardInfoButton && profilInfoButton)) {
+        if (
+            !(
+                btn &&
+                closeInfo &&
+                challengeInfoButton &&
+                rewardInfoButton &&
+                profilInfoButton &&
+                nextButton &&
+                successPopup &&
+                notificationPopup
+            )
+        ) {
             return;
         }
+
         btn.addEventListener("click", function () {
             gardenToggle();
         });
@@ -118,10 +131,13 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
         rewardInfoButton.addEventListener("click", function () {
             infoToggle();
         });
+        nextButton.addEventListener("click", function () {
+            successPopup.classList.add("hidden");
+            notificationPopup.classList.remove("hidden");
+        });
     });
 
     // Anwenden der Funktion bei Click auf Button Ende
-
 
     // Funktion um bei Click auf Button im Success PopUP dieses zu verbergen und Notification PopUp anzuzeigen (Umschalten eins sichtbar, adneres unsichtbar)
 
@@ -129,11 +145,6 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
         if (!(nextButton && successPopup && notificationPopup)) {
             return;
         }
-       
-        nextButton.addEventListener("click", function () {
-            successPopup.classList.add("hidden");
-            notificationPopup.classList.remove("hidden");
-        });
     });
 
     // Funktion Umschalten der Visibility Success PopUp und Notification PopUp
@@ -246,14 +257,14 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
                 }
                 // Start the success toggle
                 successToggle();
-                gardenToggle();                
+                gardenToggle();
             });
         }
     });
 
     //Notification Popup close
     document.addEventListener("DOMContentLoaded", () => {
-       const closeBtn = document.querySelector(".popup-close");
+        const closeBtn = document.querySelector(".popup-close");
         const popup = document.querySelector(".Notify-popup");
 
         closeBtn.addEventListener("click", () => {
