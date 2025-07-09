@@ -71,6 +71,7 @@ body {
     height: 100%;
     box-sizing: border-box;
     justify-content: space-between;
+    /* align-items: end;  would fix the position of the popup, but breaks the garden, so leaving it out */
 }
 
 
