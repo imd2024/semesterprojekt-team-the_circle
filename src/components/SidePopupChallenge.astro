@@ -166,7 +166,7 @@ import Success from "./OverPopupSuccess.astro";
                 const submitIcon = document.getElementById('submit-icon');
                 const requiredFields = form.querySelectorAll('[required]');
 
-                function checkValidity() {
+                /* function checkValidity() {
                     submit.disabled = !form.checkValidity();
                     // Change icon based on validity
                     if (form.checkValidity()) {
@@ -176,7 +176,7 @@ import Success from "./OverPopupSuccess.astro";
                         submitIcon.src = "/src/assets/check00.svg";
                         submitIcon.alt = "Invalid Submit";
                     }
-                }
+                } */
 
                 requiredFields.forEach(field => {
                     field.addEventListener('input', checkValidity);
