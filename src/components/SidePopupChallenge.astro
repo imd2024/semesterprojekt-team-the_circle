@@ -7,7 +7,6 @@ import DiceIcon from "../assets/dice00.svg";
 import invalidSubmit from "../assets/check00.svg";
 import validSubmit from "../assets/check-green00.svg";
 const { popup, helpButtonId } = Astro.props;
-import Success from "./OverPopupSuccess.astro";
 ---
 
 <div id="challenge-popup" class="hidden"> <!-- id={popup} -->
@@ -161,12 +160,36 @@ import Success from "./OverPopupSuccess.astro";
             <button type="button" disabled id="challenge-submit" class="submit">
                 <img id="submit-icon" src={invalidSubmit.src} aria-label={invalidSubmit.alt} class="icon-form" width="48" height="48"/>
             </button>
+
+            <script type="module">
+                const form = document.querySelector('.challenge-form');
+                const submitButton = document.getElementById('challenge-submit');
+                const requiredFields = form.querySelectorAll('[required]');
+
+                function checkValidity() {
+                    submitButton.disabled = !form.checkValidity();
+                }
+
+                requiredFields.forEach(field => {
+                    field.addEventListener('input', checkValidity);
+                    field.addEventListener('change', checkValidity);
+                });
+
+                // Initial check
+                checkValidity();
+            </script>
+            
+
+
+            <!-- leaving the change of the icon out even tho it would be better feedback to ensure functionality
             <script type="module">
                 const form = document.querySelector('.challenge-form');
                 const submit = document.getElementById('challenge-submit');
                 const submitIcon = document.getElementById('submit-icon');
                 const requiredFields = form.querySelectorAll('[required]');
 
+                import invalidSubmit from "../assets/check00.svg";
+                import validSubmit from "../assets/check-green00.svg";
                 function checkValidity() {
                     submit.disabled = !form.checkValidity();
                     // Change icon based on validity
@@ -186,7 +209,7 @@ import Success from "./OverPopupSuccess.astro";
 
                 // Initial check
                 checkValidity();
-            </script>
+            </script> -->
         </div>
     </form>
     </div>
