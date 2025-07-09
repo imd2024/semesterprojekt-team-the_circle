@@ -26,6 +26,7 @@
     min-width: 0px;
     min-height: 0px;
     aspect-ratio: 1;
+    align-self: stretch;
 }
 
 .garden {
@@ -73,6 +74,7 @@
         margin: 0 3.75rem 1rem;
         animation: shrinkSmall 0.3s ease-in-out;
         order: -1;
+        align-self: center;
     }
 
     @keyframes shrinkSmall {
