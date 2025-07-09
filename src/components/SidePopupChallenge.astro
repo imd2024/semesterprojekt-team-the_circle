@@ -157,16 +157,36 @@ import Success from "./OverPopupSuccess.astro";
                 >
             </div>
             <button type="submit" disabled id="challenge-submit" class="submit">
-                <Submit id="submit-icon" aria-label=submit-button class="icon-form" width="48" height="48"/>
+                <Submit id="submit-icon" aria-label=submit-button class="icon-submit" width="48" height="48"/>
             </button>
+
+            <script type="module">
+                const form = document.querySelector('.challenge-form');
+                const submitButton = document.getElementById('challenge-submit');
+                const requiredFields = form.querySelectorAll('[required]');
+
+                function checkValidity() {
+                    submitButton.disabled = !form.checkValidity();
+                }
+
+                requiredFields.forEach(field => {
+                    field.addEventListener('input', checkValidity);
+                    field.addEventListener('change', checkValidity);
+                });
+
+                // Initial check
+                checkValidity();
+            </script>
             
+
+
+            <!-- leaving the change of the icon out even tho it would be better feedback to ensure functionality
             <script type="module">
                 const form = document.querySelector('.challenge-form');
                 const submit = document.getElementById('challenge-submit');
                 const submitIcon = document.getElementById('submit-icon');
                 const requiredFields = form.querySelectorAll('[required]');
 
-                /* leaving the change of the icon out even tho it would be better feedback to ensure functionality
                 import invalidSubmit from "../assets/check00.svg";
                 import validSubmit from "../assets/check-green00.svg";
                 function checkValidity() {
@@ -179,7 +199,7 @@ import Success from "./OverPopupSuccess.astro";
                         submitIcon.src = "/src/assets/check00.svg";
                         submitIcon.alt = "Invalid Submit";
                     }
-                } */
+                }
 
                 requiredFields.forEach(field => {
                     field.addEventListener('input', checkValidity);
@@ -188,7 +208,7 @@ import Success from "./OverPopupSuccess.astro";
 
                 // Initial check
                 checkValidity();
-            </script>
+            </script> -->
         </div>
     </form>
     </div>
