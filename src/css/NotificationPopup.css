@@ -3,7 +3,7 @@
     top: 13.3vh;
     left: 58vw;
     width: 30vw;
-    background-color: #5b42a6; 
+    background-color: #534294; 
     color: white;
     padding: 2rem;
     border-radius: 1rem;
@@ -24,7 +24,7 @@
     transform: translateX(-50%);
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
-    border-bottom: 1rem solid #5b42a6;
+    border-bottom: 1rem solid #534294;
   }
   
   .popup-close {
