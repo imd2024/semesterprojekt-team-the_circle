@@ -2,19 +2,17 @@
 import OverPopupMain from "./OverPopupMain.astro";
 import "../css/overpopupstylesuccess.css";
 import Squirrel from "../assets/squirrel00.svg";
+import Next from "/src/assets/next00.svg";
 const { id, buttonId } = Astro.props;
 ---
 
 <OverPopupMain id={id} customizePopup="success-popup">
     <div class="success-content">
         <button id={buttonId} class="button-next">
-            <img
-                src="/src/assets/next00.svg"
-                alt="button-close for next popup"
-            />
+            <Next aria-label="Button zur Anzeige des nächsten Popups" />
         </button>
         <div class="icon-background">
-            <Squirrel />
+            <Squirrel aria-label="Illustration von einem Eichhörnchen" />
             <!-- fehlt noch: alt="popup-icon" -->
         </div>
         <h2>Super!</h2>
