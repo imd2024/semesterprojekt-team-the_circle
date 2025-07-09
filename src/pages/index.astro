@@ -42,21 +42,26 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
     const rewardInfoButton = document.getElementById("reward-help-button");
     const profilInfoButton = document.getElementById("profil-help-button");
 
-    // Funktion um den Garten groß/klein schalten zu können
-    function gardenToggle() {
+    // Funktionen um den Garten groß/klein schalten zu können
+    function gardenBig() {
         if (!garden) {
             return;
         }
 
-        if (garden.classList.contains("garden-background")) {
-            garden.classList.add("garden-background-small");
-            garden.classList.remove("garden-background");
+        if (!garden.classList.contains("garden-background")) {
+            garden.classList.add("garden-background");
+            garden.classList.remove("garden-background-small");
+        }
+    }
+    
+    function gardenSmall() {
+        if (!garden) {
             return;
         }
 
-        if (garden.classList.contains("garden-background-small")) {
-            garden.classList.remove("garden-background-small");
-            garden.classList.add("garden-background");
+        if (!garden.classList.contains("garden-background-small")) {
+            garden.classList.add("garden-background-small");
+            garden.classList.remove("garden-background");
         }
     }
     // Funktion Garden umschalten Ende
@@ -120,7 +125,7 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
         }
 
         btn.addEventListener("click", function () {
-            gardenToggle();
+            gardenSmall();
         });
         closeInfo.addEventListener("click", function () {
             closeInfoPopup();
@@ -179,7 +184,7 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
 
         if (profilbtn && profil) {
             profilbtn.addEventListener("click", function () {
-                gardenToggle();
+                gardenSmall();
                 // Show the profil popup and hide the profil button
                 profilbtn.classList.add("hidden");
                 profil.classList.remove("hidden");
@@ -208,7 +213,7 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
         function handleHeaderIconClick() {
             // Reward Popup
             if (reward && reward.classList.contains("visible")) {
-                gardenToggle();
+                gardenBig();
                 console.log("Closing RewardPopup");
                 reward.classList.remove("visible");
                 reward.classList.add("hidden");
@@ -231,7 +236,7 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
             }
             // Profil Popup
             if (profil && profil.classList.contains("visible")) {
-                gardenToggle();
+                gardenBig();
                 console.log("Closing ProfilPopup");
                 profil.classList.remove("visible");
                 profil.classList.add("hidden");
@@ -257,7 +262,7 @@ import OverPopupInfo from "../components/OverPopupInfo.astro";
                 }
                 // Start the success toggle
                 successToggle();
-                gardenToggle();
+                gardenBig();
             });
         }
     });
