@@ -1,6 +1,6 @@
 ---
 import "../css/SidePopupStyle.css";
-const { variant = "orange, purple", title, description, iconSrc: Icon } = Astro.props;
+const { variant = "orange, purple", title, description, iconSrc: Icon, helpButtonId } = Astro.props;
 const { popup } = Astro.props;
 import HelpIcon from "../assets/help00.svg";
 ---
@@ -17,7 +17,7 @@ import HelpIcon from "../assets/help00.svg";
                 <p>{description}</p>
             </li>
             <li>
-                <button>
+                <button id={helpButtonId}>
                     <HelpIcon
                         class="icon icon-hover"
                         aria-label="help-icon"

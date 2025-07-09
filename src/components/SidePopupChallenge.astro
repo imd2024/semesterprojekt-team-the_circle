@@ -6,7 +6,7 @@ import InfoIcon from "../assets/info00.svg";
 import DiceIcon from "../assets/dice00.svg";
 import invalidSubmit from "../assets/check00.svg";
 import validSubmit from "../assets/check-green00.svg";
-const { popup } = Astro.props;
+const { popup, helpButtonId } = Astro.props;
 import Success from "./OverPopupSuccess.astro";
 ---
 
@@ -17,6 +17,7 @@ import Success from "./OverPopupSuccess.astro";
     class="squirrel"
     title="Neue Challenge"
     description="Setze Dir selbst eine neue Routine, um Dir Belohnungen freizuschalten"
+    helpButtonId={helpButtonId}
 >
     <div class="reward-content">
     <form class="challenge-form">
@@ -157,7 +158,7 @@ import Success from "./OverPopupSuccess.astro";
                     sichtbar für Leute in Deinem Kreis</label
                 >
             </div>
-            <button type="submit" disabled id="challenge-submit" class="submit">
+            <button type="button" disabled id="challenge-submit" class="submit">
                 <img id="submit-icon" src={invalidSubmit.src} aria-label={invalidSubmit.alt} class="icon-form" width="48" height="48"/>
             </button>
             <script type="module">

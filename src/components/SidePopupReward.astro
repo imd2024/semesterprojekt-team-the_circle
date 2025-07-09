@@ -5,6 +5,7 @@ import PRSection from "./SidePopupRewardSection.astro";
 import AddIcon from "../assets/add-purple00.svg";
 import ConstructionIcon from "../assets/under-construction00.svg";
 import SquirrelIcon from "../assets/squirrel00.svg";
+const {helpButtonId} = Astro.props;
 
 const icons00=[
             { src: ConstructionIcon, alt: "Icon 1" },
@@ -43,6 +44,7 @@ const icons01=[
     iconSrc={AddIcon}
     title="Belohnungen"
     description="alles, was Du durch Challenges bekommen kannst"
+    helpButtonId={helpButtonId}
 >
     <div class="reward-content">
     <PRSection
