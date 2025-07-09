@@ -1,0 +1,37 @@
+---
+import "../css/SidePopupStyle.css";
+const { variant = "orange, purple", title, description, iconSrc: Icon, helpButtonId } = Astro.props;
+const { popup } = Astro.props;
+import HelpIcon from "../assets/help00.svg";
+---
+
+<div class="popup">
+    <header class={`popup-header header--${variant}`}>
+        <ul class="header-layout">
+            <li>
+                <Icon id="header-icon" class="icon" alt="Popup-Icon" width="48" height="48" />
+                <!--fetched from input before?-->
+            </li>
+            <li class="header-text">
+                <h1>{title}</h1>
+                <p>{description}</p>
+            </li>
+            <li>
+                <button id={helpButtonId}>
+                    <HelpIcon
+                        class="icon icon-hover"
+                        aria-label="help-icon"
+                        width="48"
+                        height="48"
+                    />
+                    <!-- icon into popup explanation-->
+                </button>
+            </li>
+        </ul>
+    </header>
+    <main class="popup-content">
+        <slot />
+    </main>
+</div>
+
+

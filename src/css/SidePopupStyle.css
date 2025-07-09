@@ -1,0 +1,416 @@
+/* erstmal eigene CSS Datei, damit kein merge-Problem auftritt, wenn wir in die gleichen Zeilen schreiben */
+
+/* colors
+Brand medium rgba(194, 215, 208, 1)
+Brand light rgba(223, 240, 234, 1)
+Belohnungen rgba(145, 71, 174, 1)
+Challenge rgba(250, 206, 112, 1)
+Icons rgba(255, 255, 255, 1)
+Icons-clicked rgba(83, 66, 148, 1)
+input-inactive rgba(255, 255, 255, 0.66)
+input-active rgba(255, 255, 255, 1)
+*/
+
+    /* setting title and textbody size and font in main?
+    h1 (size: 24, font: x), h3 (size: 16, font: x), p (size: 16, font: x)
+    */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+.popup h1 {
+    font-size: 20px;
+    margin: 0.2rem 0.2rem 0.1rem 0.2rem;
+    padding: 0;
+}
+
+.popup p, h3, label {
+    font-size: 12px;
+    margin: 0 0.2rem;
+    padding: 0;
+}
+
+.popup button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup input, label, select, option {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.popup textarea {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-height: auto;
+}
+
+.icon {
+    cursor: pointer;
+    margin: 0.5rem;
+    padding: 0;
+}
+
+.icon-form {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.icon-sumbit {
+    cursor: default;
+    margin: 0;
+    padding: 0;
+}
+
+.icon-small {
+    cursor: pointer;
+    margin: 0.5rem;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+}
+
+/*tried to add stroke color changing effect on hover, failed
+.icon-hover:hover {
+    stroke: rgba(83, 66, 148, 1);
+    transition: stroke 0.3s ease-in-out;
+}
+    */
+
+.popup {
+    background-color: rgba(223, 240, 234, 1);
+    margin: 0;
+    border-radius: 50px;
+    width: 30vw;
+    min-width: 310px;
+    max-width: 400px;
+    height: 60vh;
+    min-height: 540px;
+    max-height: 640px;
+    padding: 0 0 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-header {
+    /* background-color and color change for different popups... */
+    margin: 0 0 1rem 0;
+    padding: 0;
+    border-radius: 50px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.33);
+    width: 100%;
+    height: 20%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* vordefinierte Farbklassen */
+.header--orange {
+  background-color: rgba(250, 206, 112, 1);
+  color: black;
+}
+.header--purple {
+  background-color: rgba(145, 71, 174, 1);
+  color: white;
+}
+
+.header-layout {
+    margin: 0;
+    padding: 0;
+    width: 95%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Text sould be a little to the right */
+.header-text {
+    margin: 0 0 0 0.2rem;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.2rem;
+}
+
+.popup-content {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    height: 80%;
+    display: flex;
+}
+
+/* START CHALLENGE */
+
+/*.squirrel {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}*/
+
+.challenge-form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 95%;
+    max-height: 42vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.challenge-form fieldset {
+    background-color: rgba(194, 215, 208, 1);
+    margin: 0;
+    padding: 1rem 0.7rem 0.5rem 0.7rem;
+    border-radius: 25px;
+    border-style: none;
+}
+
+.challenge-form input, select, option {
+    background-color: rgba(255, 255, 255, 0.66);
+    border: none;
+    border-radius: 27px;
+    padding: 0 0.5rem;
+    height: 24px;
+    /* correct font yet to import */
+    font-family: Inter, Robo, sans sans-serif thin;
+    font-size: 16px;
+}
+
+.challenge-form textarea {
+    background-color: rgba(255, 255, 255, 0.66);
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem;
+    overflow-y: auto;
+    resize: none;
+    /* correct font yet to import */
+    font-family: Inter, Robo, sans sans-serif thin;
+    font-size: 16px;
+}
+
+.challenge-text {
+    min-height: 100px;
+    max-height: 200px;
+    height: auto;
+}
+
+.random-text {
+    height: 80px;
+}
+
+.challenge-form input:hover, select:hover, textarea:hover, option:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transition: background-color 0.3s ease;
+}
+
+.frequency-input:focus,
+.challenge-form select:focus, textarea:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: black solid 1px;
+    transition: outline 0.3s ease;
+}
+
+.challenge-form input:not(:placeholder-shown),
+.challenge-form textarea:not(:placeholder-shown),
+.challenge-form input:valid,
+.challenge-form select:valid {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.challenge-layout {
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.challenge-start-layout {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
+}
+
+.challenge-focus {
+    /* min max */
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.challenge-detail {
+    width: 66%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.challenge-interval {
+    width: 33%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.random-layout {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.challenge-end-layout {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-check {
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    margin: 0 0.5rem 0 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.submit {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0.5rem;
+    cursor: default;
+}
+.submit:enabled {
+    cursor: pointer;
+}
+.submit:disabled {
+    stroke-opacity: calc(1 - var(--opacity));
+    cursor: default;
+}
+
+/* END CHALLENGE */
+
+/* START REWARD */
+
+.reward-content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    /* scrolling yet to work */
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+.popup::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.popup-section {
+    background-color: rgba(194, 215, 208, 1);
+    margin: 0;
+    padding: 1rem 0.7rem 0.5rem 0.7rem;
+    width: 100%;
+    height: fit-content;
+    border-radius: 25px;
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.icon-container {
+    margin: 0 0 0 0.5rem;
+    padding: 0;
+    width: 100%;
+    /* min max */
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.reward-icon {
+    cursor: pointer;
+    margin: 0.2rem;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.42);
+    border-radius: 50px;
+}
+
+.reward-icon:hover {
+    background-color: white;
+}
+
+/* END REWARD */
+
+/* START PROFIL */
+
+.profil-content {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.construction-img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+/* END PROFIL */
+
+.visible {
+    display: flex;
+    height: fit-content;
+}

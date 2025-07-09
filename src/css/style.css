@@ -1,0 +1,156 @@
+/* Allgemein Seitenlayout Start */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Quicksand, Convergence, sans-serif;
+  background: rgb(255, 255, 255);
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+/* Class um auszublenden */
+.hidden{
+    display: none;
+}
+/* class um auszublenden ende */
+
+.flexbox-content {
+    display: flex;
+    flex-direction: row;
+    /* margin: 5.5% 9.2%; */
+    padding: 7.8vh 5.5vw;
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: end;
+}
+
+/* Navbar Start */
+.navbar {
+  background-color: #397A62;
+  height: 7.5vh;
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-icon {
+  width: 7vh;
+  height: 8.75vw;
+}
+
+.nav-item {
+    position: relative;
+  }
+
+  .nav-double-icon {
+    display:flex;
+   }
+  
+  .nav-label {
+    position: absolute;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #397A62;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius:0 0 0.3rem 0.3rem;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .nav-item:hover .nav-label {
+    opacity: 1;
+  }
+
+  /* Navbar Ende */
+
+/* Allgemein Seitenlayout Ende */
+
+.trees-icon a {
+  text-decoration: none;
+}
+
+/* Button unten Styling Start */
+
+.big-button {
+  position: fixed;
+  bottom: 5rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background-color: #397A62;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  display: flex;           /* wichtig */
+  justify-content: center; /* zentriert horizontal */
+  align-items: center;     /* zentriert vertikal */
+  text-decoration: none;
+}
+
+.big-button:hover {
+  background-color: #9147AE;
+}
+.big-button:active {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  transform: scale(0.85);
+}
+
+.left-button {
+  left: 5.5vw;
+  bottom: 7.8vh;
+}
+
+.right-button {
+  right: 5.5vw;
+  bottom: 7.8vh;
+}
+
+.button-icon {
+  width: 5vw;
+  height: 7vh;
+}
+
+/* Button unten Styling Ende */
+
+.construction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+
+}
+
+/* tablet Start*/
+@media (max-width: 979px) {
+  .flexbox-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+/* tablet Ende */

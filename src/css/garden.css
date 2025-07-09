@@ -1,0 +1,92 @@
+/* Garden Allgemein Start */
+
+.garden-background {
+    display: flex;
+    align-items: end;
+    flex-direction: row;
+    background-color: #DFF0EA;
+    border-radius: 64px;
+    margin: 0rem 3.75rem 2.5rem;
+    flex: 1 1 auto;
+    align-self: stretch;
+}
+
+.garden-background-small {
+    display: flex;
+    align-items: end;
+    flex-direction: row;
+    /* width: 44vw;
+    height: 63vh; */
+    background-color: #DFF0EA;
+    border-radius: 100%;
+    margin-left: 7.5rem;
+    max-height: auto;
+    flex-shrink: 1;
+    min-width: 0px;
+    min-height: 0px;
+    aspect-ratio: 1;
+    align-self: stretch;
+}
+
+.garden {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    height: 33%;
+    background-color: #C2D7D0;
+    border-radius: 100%;
+    margin: 0% 15%;
+    bottom: 12.5%;
+}
+
+/* Garden Allgemein Ende*/
+/* Garden Platzierung Items im Garten Start */
+
+.tree {
+    position: absolute;
+    max-height: 160%;
+    left: 3%;
+    bottom: 60%;
+    width: 43%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.plant {
+    position: absolute;
+    max-height: 70%;
+    width: 18.5%;
+    height: auto;
+    bottom: 50%;
+}
+
+.mid-plant {
+    left: 44%;
+}
+
+.right-plant {
+    left: 70%;
+}
+/* Garden Platzierung Items im Garten Ende */
+
+/* tablet Garden Start*/
+@media (max-width: 979px) {
+    .garden-background-small {
+        width: 7.5rem;
+        margin: 0 3.75rem 1rem;
+        animation: shrinkSmall 0.3s ease-in-out;
+        order: -1;
+        align-self: center;
+    }
+
+    @keyframes shrinkSmall {
+        0% {
+            width: 350px;
+        }
+
+        100% {
+            width: 7.5rem;
+        }
+    }
+}
+/* tablet Garden Ende */

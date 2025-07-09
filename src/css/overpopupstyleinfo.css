@@ -1,0 +1,32 @@
+.info-popup {
+    flex-direction: row;
+    width: 40vw;
+    min-width: 350px;
+    max-width: 500px;
+    left: 30vw;
+    top: 14vh;
+    /* justify-content: flex-start; */
+    /* min-height: 35vh; */
+}
+
+.info-popup .triangle{
+    width: 0px;
+    height: 0px;
+    border-right: 30px solid #534294;
+    border-bottom:20px solid transparent;
+    border-left: 0px solid transparent;
+    border-top: 20px solid transparent;
+}
+
+.popup-info-close-button {
+    position: absolute;
+    right: 1.5rem;
+    top:1.5rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.info-content p {
+padding: 0.5rem;
+}

@@ -1,0 +1,13 @@
+---
+import "../css/overpopupstyle.css";
+const { id, customizePopup } = Astro.props;
+
+---
+
+<div id={id}  class=`flexbox ${customizePopup} hidden`>
+    <div class="triangle"></div>
+    <div class="rectangle">
+        <slot />
+    </div>
+</div>
+
