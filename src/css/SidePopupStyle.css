@@ -17,32 +17,32 @@ input-active rgba(255, 255, 255, 1)
 *, *::before, *::after {
     box-sizing: inherit;
 }
-h1 {
+.popup h1 {
     font-size: 20px;
     margin: 0.2rem 0.2rem 0.1rem 0.2rem;
     padding: 0;
 }
 
-p, h3, label {
+.popup p, h3, label {
     font-size: 12px;
     margin: 0 0.2rem;
     padding: 0;
 }
 
-button {
+.popup button {
     background-color: transparent;
     border: none;
     padding: 0;
     margin: 0;
 }
 
-input, label, select, option {
+.popup input, label, select, option {
     margin: 0;
     padding: 0;
     width: 100%;
 }
 
-textarea {
+.popup textarea {
     margin: 0;
     padding: 0;
     width: 100%;
