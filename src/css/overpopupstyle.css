@@ -16,6 +16,7 @@
     border-right: 20px solid transparent;
     border-bottom: 30px solid #534294;
     border-left: 20px solid transparent;
+    z-index: 1;
 }
 
 .flexbox .rectangle {
