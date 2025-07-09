@@ -132,7 +132,7 @@ body {
 /* tablet */
 @media (max-width: 979px) {
   .flexbox-content {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
   }
