@@ -4,8 +4,7 @@ import Popup from "./SidePopupMain.astro";
 import SquirrelIcon from "../assets/squirrel00.svg";
 import InfoIcon from "../assets/info00.svg";
 import DiceIcon from "../assets/dice00.svg";
-import invalidSubmit from "../assets/check00.svg";
-import validSubmit from "../assets/check-green00.svg";
+import Submit from "../assets/check00.svg";
 const { popup } = Astro.props;
 import Success from "./OverPopupSuccess.astro";
 ---
@@ -158,15 +157,19 @@ import Success from "./OverPopupSuccess.astro";
                 >
             </div>
             <button type="submit" disabled id="challenge-submit" class="submit">
-                <img id="submit-icon" src={invalidSubmit.src} aria-label={invalidSubmit.alt} class="icon-form" width="48" height="48"/>
+                <Submit id="submit-icon" aria-label=submit-button class="icon-form" width="48" height="48"/>
             </button>
+            
             <script type="module">
                 const form = document.querySelector('.challenge-form');
                 const submit = document.getElementById('challenge-submit');
                 const submitIcon = document.getElementById('submit-icon');
                 const requiredFields = form.querySelectorAll('[required]');
 
-                /* function checkValidity() {
+                /* leaving the change of the icon out even tho it would be better feedback to ensure functionality
+                import invalidSubmit from "../assets/check00.svg";
+                import validSubmit from "../assets/check-green00.svg";
+                function checkValidity() {
                     submit.disabled = !form.checkValidity();
                     // Change icon based on validity
                     if (form.checkValidity()) {
