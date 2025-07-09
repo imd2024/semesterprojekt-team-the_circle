@@ -204,13 +204,17 @@ import OverPopupSuccess from "../components/OverPopupSuccess.astro";
         }
     });
 
-    // Notification Popup close
-    document.addEventListener("DOMContentLoaded", () => {
-        const closeBtn = document.querySelector(".popup-close");
-        const popup = document.querySelector(".Notify-popup");
+   // Notification Popup close
+   document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.querySelector(".popup-close");
+  const popup = document.querySelector(".Notify-popup");
+  if (!(closeBtn && popup) ) {
+        return;
+    }
 
-        closeBtn.addEventListener("click", () => {
-            popup.style.display = "none";
-        });
+    closeBtn.addEventListener("click", () => {
+    popup.classList.add("hidden");
     });
+  
+});
 </script>
