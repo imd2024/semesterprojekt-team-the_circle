@@ -1,0 +1,22 @@
+---
+import "../css/SidePopupStyle.css";
+import Popup from "./SidePopupMain.astro";
+import Construction from "../assets/under-construction00.svg"
+import ProfilIcon from "../assets/profil-purple00.svg";
+const {helpButtonId} = Astro.props;
+---
+
+<div id="profil-popup" class="hidden">
+<Popup
+    variant="purple"
+    iconSrc={Construction}
+    title="Dein Bereich"
+    description="Hier findest Du Gruppen-, Garten- und generelle Einstellungen"
+    helpButtonId={helpButtonId}
+>
+    <div class="profil-content">
+        <Construction class="construction-img"/>
+    </div>
+    
+</Popup>
+</div>

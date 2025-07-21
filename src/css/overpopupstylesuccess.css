@@ -1,0 +1,78 @@
+.success-popup {
+    width: 40vw;
+    min-width: 350px;
+    /* max-width: 500px; */
+    left: 21vw;
+    top: 10vh;
+}
+
+.success-popup .triangle {
+    transform: scale(1,0); 
+    transform-origin: bottom; 
+}
+
+.success-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-next {
+    position: absolute;
+    right: 5%;
+    /* top: 14vh; */
+    background-color: #534294;
+    border: none;
+    width: 8%;
+    cursor: pointer;
+}
+
+.button-next:active {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.button-next svg {
+    width: 100%;
+}
+
+.icon-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: white;
+    width: 30%;
+}
+
+.icon-background svg {
+    padding: 15%;
+    width: 100%;
+    height: auto;
+}
+
+/* Animation beim Erscheinen des PopUps */
+
+.animation-visible {
+    animation: bouncePopup 0.6s ease-in;
+    transform-origin: bottom;
+    opacity: 1;
+}
+
+.animation-visible .triangle {
+    animation: addTriangle 0.15s ease-in 1s 1 normal forwards;
+    transform-origin: bottom;
+}
+@keyframes bouncePopup {
+        0%   { transform: scale(0.7,1.3) translateY(-100vh); }
+        20%   { transform: scale(0.7,1.3) translateY(0); }
+        40%  { transform: scale(1.2,0.8) translateY(0); }
+        70%  { transform: scale(0.9,1.1) translateY(0); }
+        100%  { transform: scale(1,1)    translateY(0); }  
+    }
+
+    @keyframes addTriangle {
+        0%   { transform: scale(1, 0) }
+        100%  { transform: scale(1,1) }  
+    }
+
+    /* Animation beim Erscheinen des Popups Ende */

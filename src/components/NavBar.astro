@@ -1,0 +1,21 @@
+---
+import NavItem from './NavItem.astro'
+import Tree from "../assets/tree00.svg";
+import Gallery from "../assets/gallery00.svg";
+import Info from  "../assets/info00.svg";
+import Challenge from "../assets/challenge00.svg";
+import Chats from "../assets/chats00.svg";
+import Woods from "../assets/woods00.svg";
+
+---
+<nav class="navbar">
+    <ul class="nav-list">
+      <NavItem href="/"  icon={Tree} label="dein Garten" />
+      <NavItem href="/construction" icon={Gallery} label="Galerie" />
+      <NavItem href="/construction" icon={Challenge} label="deine Challenges" />
+      <NavItem href="/construction" icon={Info} label="Themen Informationen" />
+      <NavItem href="/construction" icon={Chats} label="deine Chats" />
+      <NavItem href="/construction" icon={Woods} label="Gärten Galerie" />
+    </ul>
+  </nav>
+  

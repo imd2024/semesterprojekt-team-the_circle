@@ -1,0 +1,81 @@
+---
+import "../css/SidePopupStyle.css";
+import Popup from "./SidePopupMain.astro";
+import PRSection from "./SidePopupRewardSection.astro";
+import AddIcon from "../assets/add-purple00.svg";
+import ConstructionIcon from "../assets/under-construction00.svg";
+import SquirrelIcon from "../assets/squirrel00.svg";
+const {helpButtonId} = Astro.props;
+
+const icons00=[
+            { src: ConstructionIcon, alt: "Icon 1" },
+            { src: ConstructionIcon, alt: "Icon 2" },
+            { src: ConstructionIcon, alt: "Icon 3" },
+            { src: ConstructionIcon, alt: "Icon 4" },
+            { src: ConstructionIcon, alt: "Icon 5" },
+            { src: ConstructionIcon, alt: "Icon 6" },
+            { src: ConstructionIcon, alt: "Icon 7" },
+            { src: ConstructionIcon, alt: "Icon 8" },
+            { src: ConstructionIcon, alt: "Icon 9" },
+            { src: ConstructionIcon, alt: "Icon 10" },
+            { src: ConstructionIcon, alt: "Icon 11" },
+            { src: ConstructionIcon, alt: "Icon 12" },
+        ]
+
+const icons01=[
+            { src: SquirrelIcon, alt: "Icon 1", id: "squirrel" },
+            { src: ConstructionIcon, alt: "Icon 2" },
+            { src: ConstructionIcon, alt: "Icon 3" },
+            { src: ConstructionIcon, alt: "Icon 4" },
+            { src: ConstructionIcon, alt: "Icon 5" },
+            { src: ConstructionIcon, alt: "Icon 6" },
+            { src: ConstructionIcon, alt: "Icon 7" },
+            { src: ConstructionIcon, alt: "Icon 8" },
+            { src: ConstructionIcon, alt: "Icon 9" },
+            { src: ConstructionIcon, alt: "Icon 10" },
+            { src: ConstructionIcon, alt: "Icon 11" },
+            { src: ConstructionIcon, alt: "Icon 12" },
+        ]
+---
+
+<div id="reward-popup" class="hidden">
+<Popup
+    variant="purple"
+    iconSrc={AddIcon}
+    title="Belohnungen"
+    description="alles, was Du durch Challenges bekommen kannst"
+    helpButtonId={helpButtonId}
+>
+    <div class="reward-content">
+    <PRSection
+        title="Pflanzen"
+        icons={icons00}
+    />
+    <PRSection
+        title="Tiere"
+        icons={icons01}
+
+    />
+    <PRSection
+        title="Steine"
+        icons={icons00}
+    />
+    </div>
+</Popup>
+</div>
+
+<script>
+// Ensure the DOM is fully loaded before running the script
+document.addEventListener("DOMContentLoaded", function() {
+    const icon = document.getElementById("squirrel");
+    const challenge = document.getElementById("challenge-popup");
+    const reward = document.getElementById("reward-popup");
+
+    if (icon && challenge && reward) {
+        icon.addEventListener("click", function () {
+            reward.className = "hidden";
+            challenge.className = "visible";
+        });
+    }
+});
+</script>

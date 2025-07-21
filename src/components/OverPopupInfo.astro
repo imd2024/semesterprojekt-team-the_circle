@@ -1,0 +1,23 @@
+---
+import OverPopupMain from "./OverPopupMain.astro";
+import "../css/overpopupstyleinfo.css";
+const { id, buttonId } = Astro.props;
+---
+
+<OverPopupMain customizePopup="info-popup" id={id}>
+    <div class="info-content">
+        <span id={buttonId} class="popup-info-close-button">&times;</span>
+        <p>In 60 Tagen zur neuen nachhaltigen Routine!</p>
+        <p>
+            Setze Dir eigene Ziele und sieh Deinen Fortschritt in Deinem Garten.
+        </p>
+        <br/>
+        <p>
+            Dein gewähltes Extra taucht nach dem 1. Interval in Deinem Garten
+            auf und wächst mit Deinem Baum mit.<br/>Nach den 60 Tagen der Challenge
+            kannst du es customizen!
+        </p>
+    </div>
+</OverPopupMain>
+
+<!-- Wird das Popup mit anderem Text verwendet, könnte man dies nochmal in eine Komponente mehr zerlegen -->
